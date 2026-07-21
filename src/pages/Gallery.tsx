@@ -272,7 +272,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 15,
-      url: '/img/Brand for Gina Rinehart.jpeg',
+      url: '/img/gina-rinehart-brand.jpg',
       type: 'image',
       title: 'Gina Rinehart Brand & Australian Industry Leadership',
       category: 'Institucional',
@@ -280,7 +280,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 16,
-      url: "/img/Inside Billionaire Gina Rinehart's Key Mining Investments.jpeg",
+      url: '/img/key-mining-investments.jpg',
       type: 'image',
       title: 'Key Mining Investments & Strategic Infrastructure Projects',
       category: 'Institucional',
@@ -288,7 +288,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 17,
-      url: "/img/Gina Rinehart's wealth soars as Hancock Prospecting reports $4b profit.jpeg",
+      url: '/img/hancock-profit.jpg',
       type: 'image',
       title: 'Hancock Prospecting Financial Strength & Philanthropic Growth',
       category: 'Institucional',
@@ -296,7 +296,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 18,
-      url: "/img/What it's like to interview Australia's richest___.jpeg",
+      url: '/img/interview-richest.jpg',
       type: 'image',
       title: 'Exclusive Media Interview & Public Keynote Address',
       category: 'Institucional',
@@ -304,7 +304,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 19,
-      url: '/img/Gina Rinehart takes a giant leap into space.jpeg',
+      url: '/img/gina-rinehart-space.jpg',
       type: 'image',
       title: 'Innovation & Frontier Technology Investments',
       category: 'Institucional',
@@ -312,7 +312,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 20,
-      url: '/img/Commodities Crash Washes Up In Korea.jpeg',
+      url: '/img/commodities-korea.jpg',
       type: 'image',
       title: 'Global Mining Exports & Asian Partnership Operations',
       category: 'Institucional',
@@ -320,7 +320,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 21,
-      url: '/img/Fresh twist in Rinehart royalties case.jpeg',
+      url: '/img/rinehart-royalties.jpg',
       type: 'image',
       title: 'Hancock Historic Iron Ore Discovery & Royalties Heritage',
       category: 'Institucional',
@@ -328,7 +328,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 22,
-      url: "/img/The big con_ how neoliberals convinced us there wasn't enough to go around _ Richard Denniss.jpeg",
+      url: '/img/economic-forum.jpg',
       type: 'image',
       title: 'Economic Forum & Sustainable Community Prosperity',
       category: 'Cultura',
@@ -336,7 +336,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 23,
-      url: '/img/Gina Rinehart - $26_5B Real Time Net Worth….jpeg',
+      url: '/img/gina-rinehart-net-worth.jpg',
       type: 'image',
       title: 'Mrs. Gina Rinehart AO - Australian Philanthropist & Business Leader',
       category: 'Institucional',
