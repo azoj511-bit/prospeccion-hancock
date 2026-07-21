@@ -113,16 +113,7 @@ const titleTranslations: Record<number, Record<string, string>> = {
     sr: 'Хитна помоћ са термо склоништима у Оруру, Боливија',
     ru: 'Экстренная гуманитарная помощь и укрытия в Оруро, Боливия'
   },
-  11: {
-    en: 'Clean Water Infrastructure & Well Drilling in Remote Communities',
-    es: 'Infraestructura de agua potable y perforación de pozos en comunidades remotas',
-    fr: 'Infrastructure d\'eau potable et forages dans les communautés isolées',
-    pt: 'Infraestrutura de água potável e perfuração de poços em comunidades remotas',
-    ro: 'Infrastructură de apă potabilă și foraje în comunități izolate',
-    hr: 'Infrastruktura pitke vode i bušenje bunara u udaljenim zajednicama',
-    sr: 'Инфраструктура пијаће воде и бушење бунара у удаљеним заједницама',
-    ru: 'Чистая питьевая вода и скважины в отдаленных районах'
-  },
+
   12: {
     en: 'Olympic Swimming & Athletic Sponsorship - Supporting World Champions',
     es: 'Patrocinio a la natación olímpica y atletas - Apoyo a campeones mundiales',
@@ -406,14 +397,7 @@ export const Gallery: React.FC = () => {
       category: 'Urgencia',
       year: 2024,
     },
-    {
-      id: 11,
-      url: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b7?auto=format&fit=crop&q=80&w=1200',
-      type: 'image',
-      title: 'Clean Water Infrastructure & Well Drilling in Remote Communities',
-      category: 'Medio Ambiente',
-      year: 2023,
-    },
+
     {
       id: 12,
       url: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=1200',
