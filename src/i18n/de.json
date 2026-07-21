@@ -1,0 +1,206 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "causes": "Bereiche",
+    "projects": "Projekte",
+    "impact": "Wirkung",
+    "blog": "Aktuelles",
+    "press": "Presse",
+    "donation": "Spendenanfrage",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "mission": "Engagiert für die Unterstützung sozialer, pädagogischer, medizinischer und ökologischer Anliegen im gesamten spanischsprachigen Raum und darüber hinaus.",
+    "sitemap": "Sitemap",
+    "legal": "Rechtliches",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzerklärung",
+    "cookies": "Cookie-Richtlinie",
+    "rights": "Alle Rechte vorbehalten. Fundación Prospección Hancock.",
+    "newsletter": {
+      "title": "Newsletter",
+      "placeholder": "Ihre E-Mail-Adresse",
+      "subscribe": "Abonnieren",
+      "success": "Vielen Dank für das Abonnieren unseres Newsletters!",
+      "error": "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Für eine nachhaltige Zukunft",
+      "subtitle": "Die Fundación Prospección Hancock unterstützt Gemeinschafts-, Bildungs-, Medizin- und Umweltprojekte, um eine nachhaltige soziale Wirkung zu erzielen.",
+      "cta_donation": "Spendenanfrage",
+      "cta_about": "Unsere Mission"
+    },
+    "stats": {
+      "projects_title": "Unterstützte Projekte",
+      "beneficiaries_title": "Direkte Begünstigte",
+      "donated_title": "Finanzierte Mittel",
+      "countries_title": "Aktive Länder"
+    },
+    "featured": {
+      "title": "Hervorgehobene Projekte",
+      "subtitle": "Entdecken Sie unsere jüngsten Initiativen, die Leben verändern und die Umwelt schützen."
+    }
+  },
+  "about": {
+    "title": "Wer wir sind",
+    "subtitle": "Der philanthropische Zweig von Hancock Prospecting, geleitet von den Werten Exzellenz, Transparenz und sozialer Wirkung.",
+    "history_title": "Unsere Geschichte",
+    "history_text": "Gegründet mit der festen Zusage, einen Teil des Erfolgs aus den industriellen und Explorationsaktivitäten der Hancock-Gruppe an die Gesellschaft zurückzugeben, hat sich die Fundación Prospección Hancock zu einer weltweiten Säule der Gemeinschaftsentwicklung entwickelt. Seit ihrer Gründung hat sie Hunderte von Schulen, Gesundheitskliniken und Naturschutzprogrammen auf der ganzen Welt finanziert.",
+    "mission_title": "Mission",
+    "mission_text": "Unterstützung von Initiativen, die benachteiligte Gemeinschaften stärken, eine qualitativ hochwertige Bildung und medizinische Exzellenz fördern sowie den ökologischen Naturschutz vorantreiben.",
+    "vision_title": "Vision",
+    "vision_text": "Eine treibende Kraft für positiven globalen Wandel zu sein, anerkannt für Integrität, effiziente Ressourcenverwaltung und langfristige Nachhaltigkeit der Projekte.",
+    "values_title": "Unsere Werte",
+    "values": {
+      "integrity": "Integrität",
+      "integrity_desc": "Wir handeln bei jeder Spende und Partnerschaft mit absoluter Transparenz und ethischer Verantwortung.",
+      "excellence": "Exzellenz",
+      "excellence_desc": "Wir streben nach den höchsten Qualitätsstandards und technischer Stringenz bei der Umsetzung von Projekten.",
+      "impact": "Nachhaltige Wirkung",
+      "impact_desc": "Wir entwickeln dauerhafte Lösungen, die Selbstständigkeit und langfristigen Fortschritt fördern."
+    },
+    "team_title": "Führungsteam",
+    "team_subtitle": "Ein Team, das sich der sozialen Entwicklung und Transparenz widmet."
+  },
+  "causes": {
+    "title": "Unsere Bereiche",
+    "subtitle": "Strategische Interventionsbereiche, auf die wir unsere Ressourcen konzentrieren, um die größte Wirkung zu erzielen.",
+    "items": {
+      "education": {
+        "title": "Bildung & Stipendien",
+        "desc": "Finanzierung von Schulinfrastrukturen, Stipendien für akademische Exzellenz und digitaler Ausstattung zur Verringerung der Bildungskluft in benachteiligten Regionen."
+      },
+      "health": {
+        "title": "Gesundheit & Wohlbefinden",
+        "desc": "Unterstützung von Krankenhäusern, Bereitstellung spezialisierter medizinischer Geräte, Impfkampagnen und präventiver Gesundheitsprogramme in Gemeinden."
+      },
+      "environment": {
+        "title": "Umwelt & CSR",
+        "desc": "Aufforstungsprojekte, Schutz der lokalen Artenvielfalt, nachhaltige Wasserwirtschaft und Förderung einer nachhaltigen Entwicklung."
+      },
+      "culture": {
+        "title": "Kultur & Sport",
+        "desc": "Förderung des historischen Erbes, künstlerischer Stipendien und Nutzung des Sports als Instrument zur sozialen Integration von Jugendlichen."
+      },
+      "emergency": {
+        "title": "Katastrophenhilfe",
+        "desc": "Schnelle Reaktion und Verteilung humanitärer, medizinischer und Nahrungsmittelhilfe in Gebieten, die von Naturkatastrophen oder humanitären Krisen betroffen sind."
+      }
+    }
+  },
+  "projects": {
+    "title": "Globale Projekte",
+    "subtitle": "Erkunden Sie das vollständige Portfolio der von der Stiftung finanzierten Initiativen.",
+    "search": "Projekt suchen...",
+    "filter_cause": "Alle Bereiche",
+    "filter_country": "Alle Länder",
+    "filter_status": "Alle Status",
+    "status_active": "In Arbeit",
+    "status_completed": "Abgeschlossen",
+    "no_results": "Es wurden keine Projekte gefunden, die Ihren Suchkriterien entsprechen.",
+    "details": "Details anzeigen",
+    "close": "Schließen"
+  },
+  "impact": {
+    "title": "Wirkungsmessung",
+    "subtitle": "Transparenz und quantifizierbare Ergebnisse unserer philanthropischen Aktivitäten weltweit.",
+    "map_title": "Karte aktiver Projekte",
+    "map_desc": "Klicken Sie auf die Markierungen in der Karte, um Einzelheiten zu den Interventionen in den jeweiligen Ländern anzuzeigen.",
+    "testimonials_title": "Erfahrungsberichte",
+    "testimonials_subtitle": "Stimmen derer, die den Wandel hautnah miterleben."
+  },
+  "blog": {
+    "title": "Aktuelles & Mitteilungen",
+    "subtitle": "Verfolgen Sie die neuesten Nachrichten der Fundación Prospección Hancock.",
+    "read_more": "Weiterlesen",
+    "back": "Zurück zu Aktuelles",
+    "author": "Von",
+    "published": "Veröffentlicht am"
+  },
+  "press": {
+    "title": "Pressebereich",
+    "subtitle": "Offizielle Ressourcen und Mitteilungen für Journalisten und Institutionen.",
+    "media_kit": "Pressemappe",
+    "media_kit_desc": "Laden Sie offizielle Logos im Vektorformat (SVG) und in hoher Auflösung sowie das Markenhandbuch und Porträts herunter.",
+    "download_logos": "Logos herunterladen (ZIP)",
+    "download_guide": "Markenhandbuch herunterladen (PDF)",
+    "reports_title": "Jahresberichte",
+    "reports_desc": "Sehen Sie sich unsere Finanzberichte und Aktivitätsberichte an, die unsere Transparenz belegen.",
+    "download_report": "Bericht herunterladen"
+  },
+  "donation": {
+    "title": "Spendenanfrage",
+    "subtitle": "Füllen Sie das untenstehende strukturierte Formular aus, um Ihre offizielle Anfrage für finanzielle oder materielle Unterstützung per WhatsApp zu senden.",
+    "conf_title": "Anfrage erfolgreich generiert!",
+    "conf_subtitle": "Sie werden zu WhatsApp weitergeleitet, um die offizielle Nachricht zu senden. Wenn sie nicht automatisch geöffnet wird, verwenden Sie die Schaltflächen unten.",
+    "copy_btn": "Strukturierte Nachricht kopieren",
+    "copied": "Kopiert!",
+    "send_whatsapp": "Per WhatsApp senden",
+    "new_form": "Neue Anfrage",
+    "section_identity": "Identität",
+    "section_contact": "Kontaktdaten",
+    "section_project": "Projektdetails",
+    "section_consent": "Einwilligung & Erklärung",
+    "fields": {
+      "firstname": "Vorname",
+      "lastname": "Nachname",
+      "org": "Organisation / Verein (optional)",
+      "job": "Beruf / Position",
+      "salary": "Monatliches Gehalt (Bereich)",
+      "salary_placeholder": "Bereich auswählen...",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer (mit internationaler Vorwahl, z. B. +49...)",
+      "country": "Land",
+      "country_placeholder": "Wählen Sie Ihr Land...",
+      "city": "Stadt",
+      "address": "Vollständige Adresse",
+      "cause": "Zugehöriger Bereich",
+      "cause_placeholder": "Bereich auswählen...",
+      "amount": "Gewünschter Betrag (mit Währung)",
+      "amount_placeholder": "z. B. 15.000 EUR",
+      "description": "Detaillierte Projektbeschreibung",
+      "description_placeholder": "Beschreiben Sie kurz die Ziele, Aktivitäten und Begründung der beantragten Unterstützung (max. 1000 Zeichen)",
+      "beneficiaries": "Geschätzte Anzahl der Begünstigten (optional)",
+      "dates": "Voraussichtlicher Zeitplan (optional)",
+      "dates_placeholder": "z. B. Sep. 2026 – März 2027",
+      "privacy_consent": "Ich akzeptiere die Datenschutzerklärung und stimme der Verarbeitung meiner Daten zu.",
+      "honor_cert": "Ich versichere an Eides statt, dass alle Angaben wahrheitsgemäß sind.",
+      "submit": "Spendenanfrage generieren"
+    },
+    "errors": {
+      "required": "Dieses Feld ist ein Pflichtfeld",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "phone": "Geben Sie eine gültige Telefonnummer ein (z. B. +491700000000)",
+      "max1000": "Die Beschreibung darf 1000 Zeichen nicht überschreiten",
+      "consent": "Sie müssen der Datenschutzerklärung zustimmen",
+      "cert": "Sie müssen an Eides statt versichern, dass die Angaben korrekt sind",
+      "spam": "Bitte warten Sie 30 Sekunden, bevor Sie eine weitere Anfrage senden."
+    }
+  },
+  "contact": {
+    "title": "Direkter Kontakt",
+    "subtitle": "Wenden Sie sich für institutionelle Anfragen an unser Team.",
+    "info_title": "Angaben zur Stiftung",
+    "form_title": "Senden Sie uns eine Nachricht",
+    "form_name": "Vollständiger Name",
+    "form_email": "E-Mail-Adresse",
+    "form_subject": "Betreff",
+    "form_message": "Nachricht",
+    "form_submit": "Nachricht senden",
+    "form_success": "Nachricht erfolgreich gesendet!",
+    "address_label": "Adresse",
+    "email_label": "Offizielle E-Mail",
+    "phone_label": "Telefonnummer",
+    "whatsapp_label": "Kontakt über WhatsApp"
+  },
+  "cookies": {
+    "title": "Verwendung von Cookies",
+    "text": "Wir verwenden eigene und Cookies von Drittanbietern, um Ihre Browsing-Erfahrung zu optimieren und den Datenverkehr der Website zu analysieren, gemäß der DSGVO.",
+    "accept": "Alle akzeptieren",
+    "reject": "Nicht essenzielle ablehnen",
+    "read_more": "Cookie-Richtlinie lesen"
+  }
+}

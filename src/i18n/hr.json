@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Početna",
+    "about": "O Nama",
+    "causes": "Uzroci",
+    "projects": "Projekti",
+    "impact": "Utjecaj",
+    "blog": "Vijesti",
+    "press": "Tisak",
+    "donation": "Zahtjev za Donaciju",
+    "contact": "Kontakt",
+    "gallery": "Galerija"
+  },
+  "footer": {
+    "mission": "Posvećeni podršci društvenim, obrazovnim, medicinskim i ekološkim uzrocima diljem svijeta.",
+    "sitemap": "Mapa stranice",
+    "legal": "Pravne napomene",
+    "terms": "Uvjeti korištenja",
+    "privacy": "Politika privatnosti",
+    "cookies": "Politika kolačića",
+    "rights": "Sva prava pridržana. Fundacija Prospección Hancock.",
+    "newsletter": {
+      "title": "Bilten vijesti",
+      "placeholder": "Vaša e-mail adresa",
+      "subscribe": "Pretplatite se",
+      "success": "Hvala na pretplati na naš bilten!",
+      "error": "Molimo unesite valjanu e-mail adresu."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Gradimo Održivu Budućnost",
+      "subtitle": "Fundacija Prospección Hancock podržava zajedničke, obrazovne, medicinske i ekološke projekte za trajni društveni utjecaj.",
+      "cta_donation": "Zatražite Donaciju",
+      "cta_about": "Naša Misija"
+    },
+    "stats": {
+      "projects_title": "Podržanih Projekata",
+      "beneficiaries_title": "Izravnih Korisnika",
+      "donated_title": "Dodijeljenih Sredstava",
+      "countries_title": "Aktivnih Zemalja"
+    },
+    "featured": {
+      "title": "Istaknuti Projekti",
+      "subtitle": "Otkrijte nedavne inicijative koje mijenjaju živote i štite prirodni okoliš."
+    },
+    "rinehart_quote": "\"Čvrsto vjerujem da se prosperitet mora dijeliti i da je filantropija odgovornost svih koji imaju priliku doprinijeti općem dobru.\"",
+    "rinehart_section_title": "Lider, Vizija",
+    "rinehart_section_subtitle": "Predanost Gine Rinehart ljudskom i društvenom razvoju nadilazi granice.",
+    "history_section_title": "Naslijeđe Izvrsnosti",
+    "history_section_subtitle": "Od 1992., pod vodstvom Gine Rinehart, Hancock Group pretvorio se u najuspješniju privatnu rudarsku tvrtku u povijesti Australije.",
+    "mission_section_title": "Naša Filantropska Misija"
+  },
+  "about": {
+    "title": "Tko Smo Mi",
+    "subtitle": "Filantropski ogranak Hancock Prospectinga, vođen vrijednostima izvrsnosti, transparentnosti i društvenog utjecaja.",
+    "history_title": "Naša Povijest",
+    "history_text": "Osnovana s čvrstom predanošću vraćanju dijela uspjeha industrijskog i istraživačkog poslovanja Hancock grupe društvu, Fundacija Prospección Hancock postala je globalni stup razvoja zajednice. Pod vizionarskim vodstvom Gine Rinehart — pionirke australske industrije željezne rude — fondacija financira stotine škola, zdravstvenih klinika i programa zaštite prirode diljem svijeta.",
+    "mission_title": "Misija",
+    "mission_text": "Podržavati inicijative koje osnaživaju ranjive zajednice, promiču kvalitetno obrazovanje i medicinsku izvrsnost te potiču ekološku zaštitu.",
+    "vision_title": "Vizija",
+    "vision_text": "Biti pokretačka snaga pozitivnih globalnih promjena, prepoznata po integritetu, učinkovitom upravljanju resursima i dugoročnoj održivosti projekata.",
+    "values_title": "Naše Vrijednosti",
+    "values": {
+      "integrity": "Integritet",
+      "integrity_desc": "Djelujemo s potpunom transparentnošću i etičkom odgovornošću u svakom partnerstvu.",
+      "excellence": "Izvrsnost",
+      "excellence_desc": "Težimo najvišim standardima kvalitete i tehničke strogosti u svim projektima.",
+      "impact": "Održivi Utjecaj",
+      "impact_desc": "Osmišljavamo trajna rješenja koja promiču autonomiju i dugoročni napredak."
+    },
+    "team_title": "Vodstvo Tima",
+    "team_subtitle": "Tim posvećen transparentnosti i društvenom razvoju.",
+    "pioneer_title": "Pionirka australske industrije željezne rude",
+    "awards_title": "Nagrade i Priznanja",
+    "committee_title": "Izvršni Odbor",
+    "committee_desc": "Izvršni odbor Hancock Prospectinga odgovoran je za upravljanje tvrtkom i njenim poslovnim poduhvatima."
+  },
+  "causes": {
+    "title": "Naši Uzroci",
+    "subtitle": "Strateška područja intervencije gdje koncentriramo resurse za maksimalan utjecaj.",
+    "items": {
+      "education": {
+        "title": "Obrazovanje i Stipendije",
+        "desc": "Financiramo školsku infrastrukturu, stipendije akademske izvrsnosti i tehnološku opremu za smanjenje obrazovnih razlika u ranjivim područjima."
+      },
+      "health": {
+        "title": "Zdravlje i Dobrobit",
+        "desc": "Podržavamo bolnice, osiguravamo specijaliziranu medicinsku opremu, financiramo kampanje cijepljenja i programe zajednice preventivne medicine."
+      },
+      "environment": {
+        "title": "Okoliš i DOP",
+        "desc": "Provodimo projekte pošumljavanja, očuvanja lokalne bioraznolikosti, održivog upravljanja vodom i promicanja obnovljivih izvora energije."
+      },
+      "culture": {
+        "title": "Kultura i Sport",
+        "desc": "Vrednujemo kulturnu baštinu, dodjeljujemo umjetničke stipendije i promiječemo sport kao vektor društvene uključenosti za mlade."
+      },
+      "emergency": {
+        "title": "Hitna Pomoć",
+        "desc": "Brzo reagiramo i isporučujemo humanitarnu, medicinsku i prehrambenu pomoć u područjima pogođenim prirodnim katastrofama."
+      }
+    }
+  },
+  "projects": {
+    "title": "Globalni Projekti",
+    "subtitle": "Istražite cjeloviti portfelj inicijativa koje podupire fondacija.",
+    "search": "Tražite projekt...",
+    "filter_cause": "Svi uzroci",
+    "filter_country": "Sve zemlje",
+    "filter_status": "Svi statusi",
+    "status_active": "U tijeku",
+    "status_completed": "Dovršeno",
+    "no_results": "Nijedan projekt ne odgovara vašim kriterijima pretraživanja.",
+    "details": "Detalji",
+    "close": "Zatvori"
+  },
+  "impact": {
+    "title": "Mjerenje Utjecaja",
+    "subtitle": "Transparentnost i mjerljivi rezultati naših filantropskih akcija diljem svijeta.",
+    "map_title": "Karta Aktivnih Projekata",
+    "map_desc": "Kliknite na markere na karti za detaljan pregled intervencija po državama.",
+    "testimonials_title": "Svjedočanstva Utjecaja",
+    "testimonials_subtitle": "Glas onih koji svakodnevno žive promjenu.",
+    "kpi_completion_title": "Stopa Dovršenosti",
+    "kpi_completion_desc": "Postotak projekata uspješno završenih u sklopu dogovorenog proračuna i rasporeda.",
+    "kpi_meals_title": "Hitnih Obroka",
+    "kpi_meals_desc": "Humanitarni prehrambeni kompleti distribuirani u katastrofalnim zonama ili tijekom ekstremnih klimatskih kriza.",
+    "kpi_scholarships_title": "Dodijeljenih Stipendija",
+    "kpi_scholarships_desc": "Financijska potpora akademski talentiranim studentima iz zajednica s niskim prihodima."
+  },
+  "blog": {
+    "title": "Vijesti i Priopćenja",
+    "subtitle": "Pratite najnovije objave Fundacije Prospección Hancock.",
+    "read_more": "Pročitajte više",
+    "back": "Povratak na vijesti",
+    "author": "Autor",
+    "published": "Objavljeno",
+    "search_placeholder": "Tražite po naslovu ili državi...",
+    "share": "Podijeli"
+  },
+  "press": {
+    "title": "Medijski Prostor",
+    "subtitle": "Službeni resursi i informacije za novinare i institucije.",
+    "media_kit": "Medijski Kit",
+    "media_kit_desc": "Preuzmite službene logotipe (SVG vektorski i visoke rezolucije), grafički priručnik i portrete uprave.",
+    "download_logos": "Preuzmi logotipe (ZIP)",
+    "download_guide": "Preuzmi priručnik (PDF)",
+    "reports_title": "Godišnja Izvješća",
+    "reports_desc": "Pregledajte i preuzmite naša financijska i aktivnostna izvješća, garanciju naše transparentnosti.",
+    "download_report": "Preuzmi izvješće"
+  },
+  "donation": {
+    "title": "Zahtjev za Donaciju",
+    "subtitle": "Ispunite ovaj strukturirani obrazac za službeno slanje zahtjeva za financiranje ili materijal putem WhatsAppa.",
+    "conf_title": "Zahtjev Uspješno Generiran!",
+    "conf_subtitle": "Bit ćete preusmjereni na WhatsApp za slanje poruke. Ako se ne otvori automatski, koristite gumbe ispod.",
+    "copy_btn": "Kopirajte strukturiranu poruku",
+    "copied": "Kopirano!",
+    "send_whatsapp": "Pošaljite putem WhatsAppa",
+    "new_form": "Novi Zahtjev",
+    "section_identity": "Identitet",
+    "section_contact": "Kontaktni Podaci",
+    "section_project": "Detalji Projekta",
+    "section_consent": "Pristanak i Izjava",
+    "fields": {
+      "firstname": "Ime",
+      "lastname": "Prezime",
+      "org": "Organizacija / Udruga (neobvezno)",
+      "job": "Zanimanje / Radno mjesto",
+      "salary": "Mjesečna plaća (raspon)",
+      "salary_placeholder": "Odaberite raspon...",
+      "email": "E-mail adresa",
+      "phone": "Telefon (s međunarodnim pozivnim brojem, npr. +385...)",
+      "country": "Zemlja",
+      "country_placeholder": "Odaberite svoju zemlju...",
+      "city": "Grad",
+      "address": "Puna adresa",
+      "cause": "Uzrok vezan uz projekt",
+      "cause_placeholder": "Odaberite uzrok...",
+      "amount": "Traženi iznos (s valutom)",
+      "amount_placeholder": "Npr. 15 000 EUR",
+      "description": "Detaljan opis projekta",
+      "description_placeholder": "Ukratko opišite ciljeve, aktivnosti i opravdanost tražene podrške (maks. 1000 znakova)",
+      "beneficiaries": "Procijenjeni broj korisnika (neobvezno)",
+      "dates": "Procijenjeni raspored (neobavezno)",
+      "dates_placeholder": "npr. Ruj 2026 – Ožu 2027",
+      "privacy_consent": "Prihvaćam politiku privatnosti i ovlašćujem obradu mojih podataka.",
+      "honor_cert": "Izjavljujem pod čašću da su sve navedene informacije točne.",
+      "submit": "Generirajte Zahtjev za Donaciju"
+    },
+    "errors": {
+      "required": "Ovo polje je obavezno",
+      "email": "Molimo unesite valjanu e-mail adresu",
+      "phone": "Molimo unesite valjani telefon (npr. +385600000000)",
+      "max1000": "Opis ne može biti duži od 1000 znakova",
+      "consent": "Morate prihvatiti politiku privatnosti",
+      "cert": "Morate potvrditi točnost informacija",
+      "spam": "Molimo pričekajte 30 sekundi prije slanja novog zahtjeva."
+    }
+  },
+  "contact": {
+    "title": "Izravni Kontakt",
+    "subtitle": "Obratite se našem timu za sva pitanja ili institucionalne odnose.",
+    "info_title": "Podaci Fundacije",
+    "registered_office_label": "Registrirano Sjedište",
+    "postal_address_label": "Poštanska Adresa",
+    "general_enquiries_label": "Opći Upiti",
+    "media_enquiries_label": "Medijski Upiti",
+    "form_title": "Pošaljite nam Poruku",
+    "form_name": "Puno ime",
+    "form_email": "E-mail adresa",
+    "form_subject": "Predmet",
+    "form_message": "Poruka",
+    "form_submit": "Pošaljite putem WhatsAppa",
+    "form_success": "Poruka uspješno poslana!",
+    "form_success_sub": "Bit ćete preusmjereni na WhatsApp.",
+    "address_label": "Adresa",
+    "email_label": "Službena E-pošta",
+    "phone_label": "Telefon",
+    "whatsapp_label": "WhatsApp za Kontakt"
+  },
+  "gallery": {
+    "title": "Galerija Akcija",
+    "subtitle": "Vizualni prikaz koji dokumentira stvarne priče o transformaciji i realiziranim projektima.",
+    "filter_label": "Filtrirajte Galeriju",
+    "all_causes": "Svi uzroci",
+    "all_years": "Sve godine",
+    "no_results": "Niti jedan medij ne odgovara odabranim filtrima."
+  },
+  "cookies": {
+    "title": "Korištenje Kolačića",
+    "text": "Koristimo vlastite i kolačiće trećih strana za optimizaciju vašeg iskustva i analizu prometa, u skladu s GDPR-om.",
+    "accept": "Prihvati sve",
+    "reject": "Odbij nebitne",
+    "read_more": "Pročitajte politiku kolačića"
+  }
+}

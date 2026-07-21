@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "causes": "Causas",
+    "projects": "Proyectos",
+    "impact": "Impacto",
+    "blog": "Noticias",
+    "press": "Prensa",
+    "donation": "Solicitar Donación",
+    "contact": "Contacto",
+    "gallery": "Galería"
+  },
+  "footer": {
+    "mission": "Comprometidos con el desarrollo social, educativo, sanitario y ambiental en todo el mundo y más allá.",
+    "sitemap": "Mapa del sitio",
+    "legal": "Legal",
+    "terms": "Términos de servicio",
+    "privacy": "Política de privacidad",
+    "cookies": "Política de cookies",
+    "rights": "Todos los derechos reservados. Fundación Prospección Hancock.",
+    "newsletter": {
+      "title": "Boletín de noticias",
+      "placeholder": "Su dirección de correo electrónico",
+      "subscribe": "Suscribirse",
+      "success": "¡Gracias por suscribirse a nuestro boletín!",
+      "error": "Por favor, introduzca un correo electrónico válido."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Forjando un Futuro Sostenible",
+      "subtitle": "La Fundación Prospección Hancock apoya proyectos comunitarios, educativos, médicos y ambientales para generar un impacto social duradero.",
+      "cta_donation": "Solicitar Donación",
+      "cta_about": "Nuestra Misión"
+    },
+    "stats": {
+      "projects_title": "Proyectos Apoyados",
+      "beneficiaries_title": "Beneficiarios Directos",
+      "donated_title": "Fondos Financiados",
+      "countries_title": "Países Activos"
+    },
+    "featured": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Descubra las iniciativas recientes que están transformando vidas y preservando el entorno natural."
+    },
+    "rinehart_quote": "\"Creo firmemente que la prosperidad debe compartirse y que la filantropía es responsabilidad de todos aquellos que tienen la oportunidad de contribuir al bien común.\"",
+    "rinehart_section_title": "Una Líder, Una Visión",
+    "rinehart_section_subtitle": "El compromiso de Gina Rinehart con el desarrollo humano y social trasciende fronteras.",
+    "history_section_title": "Un Legado de Excelencia",
+    "history_section_subtitle": "Desde 1992, bajo el liderazgo de Gina Rinehart, el Grupo Hancock se ha transformado en la empresa minera privada más exitosa en la historia de Australia.",
+    "mission_section_title": "Nuestra Misión Filantrópica"
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "subtitle": "La rama filantrópica de Hancock Prospecting, guiada por valores de excelencia, transparencia e impacto social.",
+    "history_title": "Nuestra Historia",
+    "history_text": "Fundada con el firme compromiso de devolver a la sociedad parte del éxito de las actividades industriales y de prospección del grupo Hancock, la Fundación Prospección Hancock se ha convertido en un pilar global para el desarrollo comunitario. Bajo el liderazgo visionario de Gina Rinehart —pionera de la industria australiana del mineral de hierro y fundadora de algunos de los proyectos mineros más grandes del mundo— la fundación financia cientos de escuelas, clínicas de salud y programas de conservación natural en todo el mundo. Desde 1992, cuando Gina Rinehart asumió la presidencia ejecutiva de Hancock Prospecting, la empresa se transformó de una organización con dificultades en una de las empresas privadas más exitosas de la historia de Australia.",
+    "mission_title": "Misión",
+    "mission_text": "Apoyar iniciativas que empoderen a las comunidades marginadas, promuevan la educación de calidad y la excelencia en salud, e impulsen la preservación ecológica.",
+    "vision_title": "Visión",
+    "vision_text": "Ser una fuerza de cambio positivo global, reconocida por su integridad, eficiencia en la gestión de recursos y la sostenibilidad a largo plazo de sus proyectos.",
+    "values_title": "Nuestros Valores",
+    "values": {
+      "integrity": "Integridad",
+      "integrity_desc": "Actuamos con absoluta transparencia y responsabilidad ética en cada donación y alianza.",
+      "excellence": "Excelencia",
+      "excellence_desc": "Buscamos los más altos estándares de calidad y rigor técnico en la ejecución de proyectos.",
+      "impact": "Impacto Sostenible",
+      "impact_desc": "Diseñamos soluciones duraderas que fomentan la autonomía y el progreso a largo plazo."
+    },
+    "team_title": "Equipo de Liderazgo",
+    "team_subtitle": "Un equipo comprometido con la transparencia y el desarrollo social.",
+    "pioneer_title": "Pionera de la industria del mineral de hierro en Australia",
+    "awards_title": "Premios y Reconocimientos",
+    "committee_title": "Comité Ejecutivo",
+    "committee_desc": "El Comité Ejecutivo de Hancock Prospecting es responsable de la gestión de la empresa y sus proyectos comerciales."
+  },
+  "causes": {
+    "title": "Nuestras Causas",
+    "subtitle": "Áreas estratégicas de intervención donde concentramos nuestros recursos para maximizar el impacto.",
+    "items": {
+      "education": {
+        "title": "Educación y Becas",
+        "desc": "Financiación de infraestructuras escolares, becas de excelencia académica y equipamiento tecnológico para reducir la brecha educativa en zonas vulnerables."
+      },
+      "health": {
+        "title": "Salud y Bienestar",
+        "desc": "Apoyo a hospitales, equipamiento médico especializado, campañas de vacunación y programas de prevención sanitaria comunitaria."
+      },
+      "environment": {
+        "title": "Medio Ambiente y RSE",
+        "desc": "Proyectos de reforestación, conservación de la biodiversidad local, gestión de recursos hídricos y promoción del desarrollo sostenible."
+      },
+      "culture": {
+        "title": "Cultura y Deporte",
+        "desc": "Promoción del patrimonio histórico, becas artísticas y fomento del deporte como herramienta de inclusión social para jóvenes."
+      },
+      "emergency": {
+        "title": "Ayuda de Emergencia",
+        "desc": "Respuesta rápida y distribución de ayuda humanitaria, médica y alimentaria en zonas afectadas por catástrofes naturales o crisis humanitarias."
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos Globales",
+    "subtitle": "Explore la cartera completa de iniciativas financiadas por la fundación.",
+    "search": "Buscar proyecto...",
+    "filter_cause": "Todas las causas",
+    "filter_country": "Todos los países",
+    "filter_status": "Todos los estados",
+    "status_active": "En curso",
+    "status_completed": "Completado",
+    "no_results": "No se encontraron proyectos que coincidan con sus criterios de búsqueda.",
+    "details": "Ver detalles",
+    "close": "Cerrar"
+  },
+  "impact": {
+    "title": "Medición del Impacto",
+    "subtitle": "Transparencia y resultados cuantificables de nuestras acciones filantrópicas en el mundo.",
+    "map_title": "Mapa de Proyectos Activos",
+    "map_desc": "Haga clic en los marcadores de la tarjeta para explorar los detalles de las intervenciones realizadas en cada país.",
+    "testimonials_title": "Testimonios de Impacto",
+    "testimonials_subtitle": "La voz de quienes experimentan el cambio en primera persona.",
+    "kpi_completion_title": "Tasa de Finalización",
+    "kpi_completion_desc": "Porcentaje de proyectos completados con éxito dentro del presupuesto y calendario acordado.",
+    "kpi_meals_title": "Comidas de Emergencia",
+    "kpi_meals_desc": "Kits de alimentación humanitaria distribuidos en zonas de desastre o crisis climáticas.",
+    "kpi_scholarships_title": "Becas Concedidas",
+    "kpi_scholarships_desc": "Ayudas financieras otorgadas a estudiantes con talento académico en comunidades de bajos ingresos."
+  },
+  "blog": {
+    "title": "Actualidades y Comunicados",
+    "subtitle": "Siga las últimas noticias de la Fundación Prospección Hancock.",
+    "read_more": "Leer más",
+    "back": "Volver a noticias",
+    "author": "Por",
+    "published": "Publicado el",
+    "search_placeholder": "Buscar por título o país...",
+    "share": "Compartir"
+  },
+  "press": {
+    "title": "Sala de Prensa",
+    "subtitle": "Recursos oficiales y comunicados dirigidos a periodistas e instituciones.",
+    "media_kit": "Kit de Prensa",
+    "media_kit_desc": "Descargue los logotipos oficiales en formato vectorial SVG y de alta resolución, la guía de estilo de marca y retratos corporativos.",
+    "download_logos": "Descargar Logotipos (ZIP)",
+    "download_guide": "Descargar Guía de Marca (PDF)",
+    "reports_title": "Informes Anuales",
+    "reports_desc": "Consulte y descargue nuestros balances financieros y memorias de actividades que certifican nuestra transparencia.",
+    "download_report": "Descargar Informe"
+  },
+  "donation": {
+    "title": "Solicitud de Donación",
+    "subtitle": "Complete el siguiente formulario estructurado para enviar su solicitud formal de apoyo financiero o material a través de WhatsApp.",
+    "conf_title": "¡Solicitud Generada con Éxito!",
+    "conf_subtitle": "Se le redirigirá a WhatsApp para enviar el mensaje oficial. Si no se abre automáticamente, use los botones a continuación.",
+    "copy_btn": "Copiar mensaje estructurado",
+    "copied": "¡Copiado!",
+    "send_whatsapp": "Enviar vía WhatsApp",
+    "new_form": "Nueva solicitud",
+    "section_identity": "Identidad",
+    "section_contact": "Datos de Contacto",
+    "section_project": "Detalles del Proyecto",
+    "section_consent": "Consentimiento y Declaración",
+    "fields": {
+      "firstname": "Nombre",
+      "lastname": "Apellidos",
+      "org": "Organización / Asociación (opcional)",
+      "job": "Profesión / Cargo",
+      "salary": "Salario mensual (rango)",
+      "salary_placeholder": "Seleccione un rango...",
+      "email": "Correo electrónico",
+      "phone": "Teléfono (con indicativo internacional, ej. +34...)",
+      "country": "País",
+      "country_placeholder": "Seleccione su país...",
+      "city": "Ciudad",
+      "address": "Dirección completa",
+      "cause": "Causa asociada al proyecto",
+      "cause_placeholder": "Seleccione una causa...",
+      "amount": "Monto solicitado (con divisa)",
+      "amount_placeholder": "Ej. 15 000 EUR",
+      "description": "Descripción detallada del proyecto",
+      "description_placeholder": "Describa brevemente los objetivos, actividades y justificación del apoyo solicitado (máx. 1000 caracteres)",
+      "beneficiaries": "Número estimado de beneficiarios (opcional)",
+      "dates": "Calendario estimado del proyecto (opcional)",
+      "dates_placeholder": "Ej. Sep 2026 – Mar 2027",
+      "privacy_consent": "Acepto la política de privacidad y autorizo el procesamiento de mis datos.",
+      "honor_cert": "Certifico bajo juramento que toda la información provista es verídica.",
+      "submit": "Generar Solicitud de Donación"
+    },
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "email": "Debe introducir un correo electrónico válido",
+      "phone": "Introduzca un número de teléfono válido (ej: +34600000000)",
+      "max1000": "La descripción no puede superar los 1000 caracteres",
+      "consent": "Debe aceptar la política de privacidad",
+      "cert": "Debe certificar bajo juramento la veracidad de los datos",
+      "spam": "Por favor, espere 30 segundos antes de enviar otra solicitud."
+    }
+  },
+  "contact": {
+    "title": "Contacto Directo",
+    "subtitle": "Póngase en contacto con nuestro equipo para consultas institucionales.",
+    "info_title": "Información de la Fundación",
+    "registered_office_label": "Domicilio Social",
+    "postal_address_label": "Dirección Postal",
+    "general_enquiries_label": "Consultas Generales",
+    "media_enquiries_label": "Consultas de Medios",
+    "form_title": "Envíenos un Mensaje",
+    "form_name": "Nombre completo",
+    "form_email": "Correo electrónico",
+    "form_subject": "Asunto",
+    "form_message": "Mensaje",
+    "form_submit": "Enviar vía WhatsApp",
+    "form_success": "¡Mensaje enviado con éxito!",
+    "form_success_sub": "Será redirigido a WhatsApp para finalizar el envío.",
+    "address_label": "Dirección",
+    "email_label": "Correo electrónico oficial",
+    "phone_label": "Teléfono",
+    "whatsapp_label": "WhatsApp de Contact"
+  },
+  "gallery": {
+    "title": "Galería de Acciones",
+    "subtitle": "Un recorrido visual que documenta las historias reales de transformación y los proyectos realizados.",
+    "filter_label": "Filtrar Galería",
+    "all_causes": "Todas las causas",
+    "all_years": "Todos los años",
+    "no_results": "No se encontraron medios que coincidan con los filtros."
+  },
+  "cookies": {
+    "title": "Uso de Cookies",
+    "text": "Utilizamos cookies propias y de terceros para optimizar su experiencia de navegación y analizar el tráfico de nuestra web de acuerdo con el RGPD.",
+    "accept": "Aceptar todas",
+    "reject": "Rechazar no esenciales",
+    "read_more": "Leer Política de Cookies"
+  }
+}

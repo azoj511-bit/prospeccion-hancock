@@ -1,0 +1,238 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "about": "Despre Noi",
+    "causes": "Cauze",
+    "projects": "Proiecte",
+    "impact": "Impact",
+    "blog": "Știri",
+    "press": "Presă",
+    "donation": "Solicitare Donație",
+    "contact": "Contact",
+    "gallery": "Galerie"
+  },
+  "footer": {
+    "mission": "Angajați în sprijinirea cauzelor sociale, educaționale, medicale și de mediu din întreaga lume.",
+    "sitemap": "Hartă site",
+    "legal": "Mențiuni Legale",
+    "terms": "Termeni de utilizare",
+    "privacy": "Politica de confidențialitate",
+    "cookies": "Politica cookies",
+    "rights": "Toate drepturile rezervate. Fundația Prospección Hancock.",
+    "newsletter": {
+      "title": "Buletin informativ",
+      "placeholder": "Adresa dvs. de e-mail",
+      "subscribe": "Abonați-vă",
+      "success": "Vă mulțumim pentru abonare!",
+      "error": "Vă rugăm să introduceți o adresă de e-mail validă."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Construind un Viitor Durabil",
+      "subtitle": "Fundația Prospección Hancock sprijină proiecte comunitare, educaționale, medicale și de mediu pentru un impact social de durată.",
+      "cta_donation": "Solicitați Donație",
+      "cta_about": "Misiunea Noastră"
+    },
+    "stats": {
+      "projects_title": "Proiecte Susținute",
+      "beneficiaries_title": "Beneficiari Direcți",
+      "donated_title": "Fonduri Alocate",
+      "countries_title": "Țări Active"
+    },
+    "featured": {
+      "title": "Proiecte Recomandate",
+      "subtitle": "Descoperiți inițiativele recente care transformă vieți și protejează mediul natural."
+    },
+    "rinehart_quote": "\"Cred cu tărie că prosperitatea trebuie împărtășită și că filantropia este o responsabilitate a tuturor celor care au oportunitatea de a contribui la binele comun.\"",
+    "rinehart_section_title": "Un Lider, O Viziune",
+    "rinehart_section_subtitle": "Angajamentul lui Gina Rinehart față de dezvoltarea umană și socială transcende granițele.",
+    "history_section_title": "O Moștenire a Excelenței",
+    "history_section_subtitle": "Din 1992, sub conducerea lui Gina Rinehart, Grupul Hancock s-a transformat în cea mai de succes companie minieră privată din istoria Australiei.",
+    "mission_section_title": "Misiunea Noastră Filantropică"
+  },
+  "about": {
+    "title": "Cine Suntem",
+    "subtitle": "Brațul filantropic al Hancock Prospecting, ghidat de valori de excelență, transparență și impact social.",
+    "history_title": "Istoria Noastră",
+    "history_text": "Fondată cu angajamentul ferm de a restitui societății o parte din succesul activităților industriale și de prospectare ale Grupului Hancock, Fundația Prospección Hancock a devenit un pilon global al dezvoltării comunitare. Sub conducerea vizionară a lui Gina Rinehart — pionier al industriei australiene a minereului de fier — fundația finanțează sute de școli, clinici de sănătate și programe de conservare a naturii în întreaga lume.",
+    "mission_title": "Misiune",
+    "mission_text": "Să sprijinim inițiativele care capacitează comunitățile vulnerabile, promovează educația de calitate și excelența medicală și stimulează conservarea ecologică.",
+    "vision_title": "Viziune",
+    "vision_text": "Să fim o forță motrice pentru schimbarea pozitivă globală, recunoscută pentru integritate, eficiența gestionării resurselor și sustenabilitatea pe termen lung a proiectelor.",
+    "values_title": "Valorile Noastre",
+    "values": {
+      "integrity": "Integritate",
+      "integrity_desc": "Acționăm cu transparență totală și responsabilitate etică în fiecare donație și parteneriat.",
+      "excellence": "Excelență",
+      "excellence_desc": "Urmărim cele mai înalte standarde de calitate și rigoare tehnică în execuția tuturor proiectelor.",
+      "impact": "Impact Durabil",
+      "impact_desc": "Concepem soluții durabile care favorizează autonomia și progresul pe termen lung."
+    },
+    "team_title": "Echipa de Conducere",
+    "team_subtitle": "O echipă dedicată transparenței și dezvoltării sociale.",
+    "pioneer_title": "Pionier al Industriei Australiene de Minereu de Fier",
+    "awards_title": "Premii și Distincții",
+    "committee_title": "Comitetul Executiv",
+    "committee_desc": "Comitetul Executiv al Hancock Prospecting este responsabil de gestionarea companiei și a activităților sale."
+  },
+  "causes": {
+    "title": "Cauzele Noastre",
+    "subtitle": "Domenii strategice de intervenție unde ne concentrăm resursele pentru a maximiza impactul.",
+    "items": {
+      "education": {
+        "title": "Educație și Burse",
+        "desc": "Finanțăm infrastructuri școlare, burse de excelență academică și echipamente tehnologice pentru a reduce decalajul educațional în zonele vulnerabile. Fiecare copil merită acces la o educație de calitate, indiferent de originea sa geografică sau situația economică."
+      },
+      "health": {
+        "title": "Sănătate și Bunăstare",
+        "desc": "Sprijinim spitale, furnizăm echipamente medicale specializate, finanțăm campanii de vaccinare și programe de medicină preventivă comunitară. Clinicile noastre mobile ajung în comunitățile cele mai izolate."
+      },
+      "environment": {
+        "title": "Mediu și RSC",
+        "desc": "Implementăm proiecte de reîmpădurire, conservarea biodiversității locale, gestionarea durabilă a apei și promovarea energiei regenerabile. Ne angajăm să lăsăm planeta într-o stare mai bună decât am găsit-o."
+      },
+      "culture": {
+        "title": "Cultură și Sport",
+        "desc": "Valorificăm patrimoniul istoric, acordăm burse artistice și promovăm sportul ca vector de incluziune socială pentru tineri. Sprijinăm atleți olimpici și programe sportive comunitare din întreaga lume."
+      },
+      "emergency": {
+        "title": "Ajutor de Urgență",
+        "desc": "Răspundem rapid la crizele umanitare, distribuind ajutor umanitar, medical și alimentar în zonele afectate de dezastre naturale. Capacitatea noastră de răspuns rapid ne permite să ajungem la populațiile cele mai vulnerabile."
+      }
+    }
+  },
+  "projects": {
+    "title": "Proiecte Globale",
+    "subtitle": "Explorați portofoliul complet de inițiative finanțate de fundație.",
+    "search": "Căutați un proiect...",
+    "filter_cause": "Toate cauzele",
+    "filter_country": "Toate țările",
+    "filter_status": "Toate statusurile",
+    "status_active": "În curs",
+    "status_completed": "Finalizat",
+    "no_results": "Niciun proiect nu corespunde criteriilor dvs. de căutare.",
+    "details": "Detalii",
+    "close": "Închide"
+  },
+  "impact": {
+    "title": "Măsurarea Impactului",
+    "subtitle": "Transparență și rezultate cuantificabile ale acțiunilor noastre filantropice mondiale.",
+    "map_title": "Harta Proiectelor Active",
+    "map_desc": "Faceți clic pe marcajele hărții pentru a explora în detaliu intervențiile noastre pe țară.",
+    "testimonials_title": "Mărturii de Impact",
+    "testimonials_subtitle": "Cuvântul celor care trăiesc schimbarea zilnic.",
+    "kpi_completion_title": "Rată de Finalizare",
+    "kpi_completion_desc": "Procentul proiectelor finalizate cu succes în buget și în termenele convenite.",
+    "kpi_meals_title": "Mese de Urgență",
+    "kpi_meals_desc": "Kituri alimentare umanitare distribuite în zone de dezastru sau crize climatice extreme.",
+    "kpi_scholarships_title": "Burse Acordate",
+    "kpi_scholarships_desc": "Ajutoare financiare acordate studenților cu talent academic din comunități cu venituri reduse."
+  },
+  "blog": {
+    "title": "Știri și Comunicate",
+    "subtitle": "Urmăriți cele mai recente publicații ale Fundației Prospección Hancock.",
+    "read_more": "Citiți mai mult",
+    "back": "Înapoi la știri",
+    "author": "De",
+    "published": "Publicat la",
+    "search_placeholder": "Căutați după titlu sau țară...",
+    "share": "Distribuiți"
+  },
+  "press": {
+    "title": "Spațiu de Presă",
+    "subtitle": "Resurse oficiale și informații destinate jurnaliștilor și instituțiilor.",
+    "media_kit": "Kit Media",
+    "media_kit_desc": "Descărcați logourile oficiale (formate vectoriale SVG și rezoluție înaltă), ghidul de brand și portretele conducerii.",
+    "download_logos": "Descărcați logourile (ZIP)",
+    "download_guide": "Descărcați ghidul (PDF)",
+    "reports_title": "Rapoarte Anuale",
+    "reports_desc": "Consultați și descărcați rapoartele noastre financiare și de activitate, garanție a transparenței noastre.",
+    "download_report": "Descărcați raportul"
+  },
+  "donation": {
+    "title": "Solicitare de Donație",
+    "subtitle": "Completați acest formular structurat pentru a trimite oficial cererea dvs. de finanțare sau material prin WhatsApp.",
+    "conf_title": "Cerere Generată cu Succes!",
+    "conf_subtitle": "Veți fi redirecționat către WhatsApp pentru a trimite mesajul. Dacă nu se deschide automat, utilizați butoanele de mai jos.",
+    "copy_btn": "Copiați mesajul structurat",
+    "copied": "Copiat!",
+    "send_whatsapp": "Trimiteți prin WhatsApp",
+    "new_form": "Cerere Nouă",
+    "section_identity": "Identitate",
+    "section_contact": "Informații de Contact",
+    "section_project": "Detalii Proiect",
+    "section_consent": "Consimțământ și Declarație",
+    "fields": {
+      "firstname": "Prenume",
+      "lastname": "Nume",
+      "org": "Organizație / Asociație (opțional)",
+      "job": "Profesie / Post",
+      "salary": "Salariu lunar (interval)",
+      "salary_placeholder": "Selectați un interval...",
+      "email": "Adresă e-mail",
+      "phone": "Telefon (cu prefix internațional, ex: +40...)",
+      "country": "Țară",
+      "country_placeholder": "Selectați țara...",
+      "city": "Oraș",
+      "address": "Adresă completă",
+      "cause": "Cauza asociată proiectului",
+      "cause_placeholder": "Selectați o cauză...",
+      "amount": "Suma solicitată (cu moneda)",
+      "amount_placeholder": "Ex: 15 000 EUR",
+      "description": "Descriere detaliată a proiectului",
+      "description_placeholder": "Descrieți pe scurt obiectivele, activitățile și justificarea sprijinului solicitat (max. 1000 caractere)",
+      "beneficiaries": "Numărul estimat de beneficiari (opțional)",
+      "dates": "Calendar estimat (opțional)",
+      "dates_placeholder": "Ex: Sep 2026 – Mar 2027",
+      "privacy_consent": "Accept politica de confidențialitate și autorizez prelucrarea datelor mele.",
+      "honor_cert": "Certific pe proprie răspundere că toate informațiile furnizate sunt exacte.",
+      "submit": "Generați Cererea de Donație"
+    },
+    "errors": {
+      "required": "Acest câmp este obligatoriu",
+      "email": "Vă rugăm să introduceți un e-mail valid",
+      "phone": "Vă rugăm să introduceți un telefon valid (ex: +40600000000)",
+      "max1000": "Descrierea nu poate depăși 1000 de caractere",
+      "consent": "Trebuie să acceptați politica de confidențialitate",
+      "cert": "Trebuie să certificați exactitatea informațiilor",
+      "spam": "Vă rugăm să așteptați 30 de secunde înainte de a trimite o nouă cerere."
+    }
+  },
+  "contact": {
+    "title": "Contact Direct",
+    "subtitle": "Contactați echipa noastră pentru orice întrebare sau relație instituțională.",
+    "info_title": "Coordonatele Fundației",
+    "registered_office_label": "Sediu Social",
+    "postal_address_label": "Adresă Poștală",
+    "general_enquiries_label": "Cereri Generale",
+    "media_enquiries_label": "Cereri Media",
+    "form_title": "Trimiteți-ne un Mesaj",
+    "form_name": "Nume complet",
+    "form_email": "Adresă e-mail",
+    "form_subject": "Subiect",
+    "form_message": "Mesaj",
+    "form_submit": "Trimiteți prin WhatsApp",
+    "form_success": "Mesaj trimis cu succes!",
+    "form_success_sub": "Veți fi redirecționat către WhatsApp.",
+    "address_label": "Adresă",
+    "email_label": "E-mail Oficial",
+    "phone_label": "Telefon",
+    "whatsapp_label": "WhatsApp de Contact"
+  },
+  "gallery": {
+    "title": "Galerie de Acțiuni",
+    "subtitle": "O călătorie vizuală care documentează poveștile reale de transformare și proiectele realizate.",
+    "filter_label": "Filtrați Galeria",
+    "all_causes": "Toate cauzele",
+    "all_years": "Toți anii",
+    "no_results": "Niciun material nu corespunde filtrelor selectate."
+  },
+  "cookies": {
+    "title": "Utilizarea Cookies",
+    "text": "Utilizăm cookies proprii și ale terților pentru a optimiza experiența dvs. și a analiza traficul, în conformitate cu GDPR.",
+    "accept": "Acceptați tot",
+    "reject": "Respingeți non-esențiale",
+    "read_more": "Citiți politica de cookies"
+  }
+}

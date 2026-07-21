@@ -1,0 +1,206 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "causes": "公益领域",
+    "projects": "慈善项目",
+    "impact": "社会影响",
+    "blog": "新闻动态",
+    "press": "媒体中心",
+    "donation": "申请资助",
+    "contact": "联系我们"
+  },
+  "footer": {
+    "mission": "致力于在整个西语世界及其他地区支持社会、教育、医疗和环境事业的发展。",
+    "sitemap": "网站地图",
+    "legal": "法律声明",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "cookies": "Cookie政策",
+    "rights": "版权所有。汉考克勘探基金会 (Fundación Prospección Hancock)。",
+    "newsletter": {
+      "title": "订阅新闻动态",
+      "placeholder": "您的电子邮箱",
+      "subscribe": "订阅",
+      "success": "感谢您订阅我们的新闻动态！",
+      "error": "请输入有效的电子邮箱地址。"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "共创可持续未来",
+      "subtitle": "汉考克勘探基金会支持社区、教育、医疗和环境项目，创造持久的社会影响力。",
+      "cta_donation": "申请资助",
+      "cta_about": "我们的使命"
+    },
+    "stats": {
+      "projects_title": "资助项目",
+      "beneficiaries_title": "直接受益人数",
+      "donated_title": "已分配资金",
+      "countries_title": "活跃国家"
+    },
+    "featured": {
+      "title": "精选项目",
+      "subtitle": "探索正在改变生命和保护自然环境的最新倡议项目。"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "subtitle": "汉考克勘探公司 (Hancock Prospecting) 的慈善机构，以卓越、透明度和社会影响为核心价值。",
+    "history_title": "发展历程",
+    "history_text": "汉考克勘探基金会成立的初衷是回馈社会，分享汉考克集团工业与勘探活动的成功成果。自成立以来，基金会已在世界各地资助了数百所学校、医疗诊所以及自然保护项目，成为全球社区发展的支柱。",
+    "mission_title": "我们的使命",
+    "mission_text": "支持旨在赋能弱势社区、促进高质量教育与医疗卓越，以及推动生态保护的倡议项目。",
+    "vision_title": "我们的愿景",
+    "vision_text": "成为全球积极变革的推动力量，以诚信、高效的资源管理和项目的长期可持续性而闻名。",
+    "values_title": "核心价值观",
+    "values": {
+      "integrity": "诚信透明",
+      "integrity_desc": "我们在每一次捐赠和合作中均保持绝对透明，并恪守伦理责任。",
+      "excellence": "追求卓越",
+      "excellence_desc": "我们在项目执行中追求最高质量标准和专业技术严谨性。",
+      "impact": "持续影响",
+      "impact_desc": "我们设计持久的解决方案，以促进社区的自主发展与长期进步。"
+    },
+    "team_title": "管理团队",
+    "team_subtitle": "一个致力于社会发展和透明管理的专业团队。"
+  },
+  "causes": {
+    "title": "公益领域",
+    "subtitle": "我们集中资源以实现最大化社会影响的战略干预领域。",
+    "items": {
+      "education": {
+        "title": "教育与奖学金",
+        "desc": "资助学校基础设施建设、学术优秀奖学金和教育信息化设备，缩小贫困地区的教育差距。"
+      },
+      "health": {
+        "title": "医疗与健康",
+        "desc": "支持医院建设、专业医疗设备采购、疫苗接种运动以及社区预防性健康项目。"
+      },
+      "environment": {
+        "title": "环境与社会责任",
+        "desc": "植树造林项目、当地生物多样性保护、水资源可持续管理以及推动绿色可持续发展。"
+      },
+      "culture": {
+        "title": "文化与体育",
+        "desc": "保护历史文化遗产、提供艺术类奖学金，并将体育作为促进青少年社会融入的工具。"
+      },
+      "emergency": {
+        "title": "紧急救援",
+        "desc": "在遭受自然灾害或人道主义危机的地区，提供快速响应，分发人道救援、医疗和粮食援助。"
+      }
+    }
+  },
+  "projects": {
+    "title": "全球项目",
+    "subtitle": "浏览由基金会资助的完整公益项目清单。",
+    "search": "搜索项目...",
+    "filter_cause": "所有领域",
+    "filter_country": "所有国家",
+    "filter_status": "所有状态",
+    "status_active": "进行中",
+    "status_completed": "已完成",
+    "no_results": "未找到符合您搜索条件的项目。",
+    "details": "查看详情",
+    "close": "关闭"
+  },
+  "impact": {
+    "title": "社会影响测量",
+    "subtitle": "我们全球慈善行动的透明度与量化成果展示。",
+    "map_title": "活动项目分布图",
+    "map_desc": "点击地图上的标记，探索我们在各个国家的具体干预项目详情。",
+    "testimonials_title": "受益人证言",
+    "testimonials_subtitle": "倾听直接体验到改变的受益人们的真实心声。"
+  },
+  "blog": {
+    "title": "新闻与公告",
+    "subtitle": "关注汉考克勘探基金会的最新动态与官方公告。",
+    "read_more": "阅读更多",
+    "back": "返回新闻列表",
+    "author": "作者",
+    "published": "发布日期"
+  },
+  "press": {
+    "title": "媒体中心",
+    "subtitle": "面向记者和合作机构的官方资源及通稿发布。",
+    "media_kit": "媒体资料包",
+    "media_kit_desc": "下载矢量格式 SVG 和高分辨率的官方标识、品牌风格指南以及管理层官方肖像。",
+    "download_logos": "下载官方标识 (ZIP)",
+    "download_guide": "下载品牌指南 (PDF)",
+    "reports_title": "年度报告",
+    "reports_desc": "查阅并下载我们的财务报表和活动报告，以验证我们的透明运作。",
+    "download_report": "下载报告"
+  },
+  "donation": {
+    "title": "资助申请表",
+    "subtitle": "请填写下方结构化表单，通过 WhatsApp 提交您的正式资金或物资资助申请。",
+    "conf_title": "申请已成功生成！",
+    "conf_subtitle": "您将被重定向至 WhatsApp 以发送官方消息。若未自动打开，请使用下方按钮。",
+    "copy_btn": "复制结构化信息",
+    "copied": "已复制！",
+    "send_whatsapp": "通过 WhatsApp 发送",
+    "new_form": "填写新申请",
+    "section_identity": "身份信息",
+    "section_contact": "联系方式",
+    "section_project": "项目详情",
+    "section_consent": "知情同意与声明",
+    "fields": {
+      "firstname": "名字",
+      "lastname": "姓氏",
+      "org": "机构 / 协会名称 (选填)",
+      "job": "职业 / 职务",
+      "salary": "月收入范围",
+      "salary_placeholder": "请选择月收入范围...",
+      "email": "电子邮箱",
+      "phone": "电话号码 (含国际区号，如 +86...)",
+      "country": "国家",
+      "country_placeholder": "请选择您的国家...",
+      "city": "城市",
+      "address": "详细地址",
+      "cause": "项目相关领域",
+      "cause_placeholder": "请选择公益领域...",
+      "amount": "申请资金数额 (注明币种)",
+      "amount_placeholder": "例如: 15,000 USD",
+      "description": "项目详细说明",
+      "description_placeholder": "请简要描述项目目标、主要活动以及申请资助的理由 (字数上限 1000 字)",
+      "beneficiaries": "预计受益人数 (选填)",
+      "dates": "预计项目实施周期 (选填)",
+      "dates_placeholder": "例如: 2026年9月 – 2027年3月",
+      "privacy_consent": "我同意隐私政策并授权处理我的个人数据。",
+      "honor_cert": "我宣誓并保证所提供的所有信息均真实无误。",
+      "submit": "生成资助申请信息"
+    },
+    "errors": {
+      "required": "此项为必填项",
+      "email": "请输入有效的电子邮箱",
+      "phone": "请输入有效的电话号码 (例如: +8613000000000)",
+      "max1000": "项目说明字数不能超过 1000 字",
+      "consent": "您必须接受隐私政策",
+      "cert": "您必须宣誓所填数据真实无误",
+      "spam": "请等待 30 秒后再提交新的申请。"
+    }
+  },
+  "contact": {
+    "title": "直接联系",
+    "subtitle": "如有机构合作或咨询需求，请与我们的团队取得联系。",
+    "info_title": "基金会联系方式",
+    "form_title": "给客房部发消息",
+    "form_name": "完整姓名",
+    "form_email": "电子邮箱",
+    "form_subject": "主题",
+    "form_message": "留言内容",
+    "form_submit": "发送留言",
+    "form_success": "留言发送成功！",
+    "address_label": "基金会地址",
+    "email_label": "官方电子邮箱",
+    "phone_label": "联系电话",
+    "whatsapp_label": "联系 WhatsApp"
+  },
+  "cookies": {
+    "title": "Cookie 的使用",
+    "text": "我们使用自身和第三方 Cookie 来优化您的浏览体验并分析网站流量，这符合《通用数据保护条例》(GDPR) 的规定。",
+    "accept": "接受全部",
+    "reject": "拒绝非必要 Cookie",
+    "read_more": "阅读 Cookie 政策"
+  }
+}
