@@ -230,7 +230,7 @@ ${t('donation.fields.description')}: ${data.description}${datesPart}`;
     setIsSubmitted(true);
 
     // Redirect to WhatsApp
-    const phone = '33757756283'; // Official WhatsApp: +33 7 57 75 62 83
+    const phone = '61480801641'; // Official WhatsApp: +61 480 801 641
     const encodedText = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phone}?text=${encodedText}`;
 
@@ -245,7 +245,7 @@ ${t('donation.fields.description')}: ${data.description}${datesPart}`;
   };
 
   const handleSendAgain = () => {
-    const phone = '33757756283';
+    const phone = '61480801641';
     const encodedText = encodeURIComponent(formattedMessage);
     window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
   };
