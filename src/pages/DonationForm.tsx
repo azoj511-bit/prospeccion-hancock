@@ -6,16 +6,11 @@ import {
   Send,
   ArrowRight,
   RefreshCw,
-  Download,
-  Printer,
   FileText,
   ChevronDown,
   ChevronUp,
-  ShieldCheck,
   AlertCircle
 } from 'lucide-react';
-import { DonationPdfDocument, type DonationDocumentData } from '../components/DonationPdfDocument';
-import { generatePdfFromElement } from '../utils/pdfGenerator';
 
 interface FormData {
   firstname: string;
@@ -72,9 +67,8 @@ export const DonationForm: React.FC = () => {
   const [formattedMessage, setFormattedMessage] = useState('');
   const [copied, setCopied] = useState(false);
   const [spamError, setSpamError] = useState('');
-  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
   const [showRawMessage, setShowRawMessage] = useState(false);
-  const [dossierData, setDossierData] = useState<DonationDocumentData | null>(null);
+  const [refNumber, setRefNumber] = useState('');
 
   // Currency mapping per country code
   const getCurrencyForCountry = (countryCode: string): { symbol: string; name: string } => {
@@ -343,42 +337,62 @@ export const DonationForm: React.FC = () => {
     return selected ? selected.name : countryCode;
   };
 
-  const generateWhatsAppMessage = (data: FormData, refNumber: string): string => {
-    const orgPart = data.org ? ` (${data.org})` : '';
-    const salaryPart = data.salary ? ` • ${t('donation.fields.salary')}: ${data.salary}` : '';
-    const benefPart = data.beneficiaries ? ` • ${t('donation.fields.beneficiaries')}: ${data.beneficiaries}` : '';
+  const generateWhatsAppMessage = (data: FormData, ref: string, submissionDate: string): string => {
+    const orgPart = data.org ? `\n🏢 *${t('donation.fields.org')}:* ${data.org}` : '';
     const countryName = getCountryName(data.country);
     const causeLabel = getCauseLabel(data.cause);
 
-    const greetings: Record<string, string> = {
-      es: `Estimada Fundación Hancock, soy ${data.firstname} ${data.lastname}${orgPart}. Solicitud formal [Ref: ${refNumber}]:`,
-      fr: `Bonjour, je suis ${data.firstname} ${data.lastname}${orgPart}. Demande officielle [Réf: ${refNumber}]:`,
-      en: `Dear Hancock Foundation, I am ${data.firstname} ${data.lastname}${orgPart}. Official Grant Application [Ref: ${refNumber}]:`,
-      de: `Guten Tag, ich bin ${data.firstname} ${data.lastname}${orgPart}. Offizielle Förderungsanfrage [Ref: ${refNumber}]:`,
-      pt: `Olá, sou ${data.firstname} ${data.lastname}${orgPart}. Candidatura oficial a subsídio [Ref: ${refNumber}]:`,
-      ru: `Здравствуйте, я ${data.firstname} ${data.lastname}${orgPart}. Официальная заявка на грант [Ref: ${refNumber}]:`,
-      ro: `Bună ziua, sunt ${data.firstname} ${data.lastname}${orgPart}. Cerere oficială de finanțare [Ref: ${refNumber}]:`,
-      hr: `Pozdrav, ja sam ${data.firstname} ${data.lastname}${orgPart}. Službeni zahtjev za donaciju [Ref: ${refNumber}]:`,
-      sr: `Zdravo, ja sam ${data.firstname} ${data.lastname}${orgPart}. Zvanični zahtev za donaciju [Ref: ${refNumber}]:`,
-      zh: `您好，我是 ${data.firstname} ${data.lastname}${orgPart}。正式资助申请 [编号: ${refNumber}]:`,
-    };
-    const greeting = greetings[language] || `Bonjour, je suis ${data.firstname} ${data.lastname}${orgPart}. Demande [Réf: ${refNumber}]:`;
-
-    return `🏛️ *${t('donation.dossier.official_header')}*
-📄 *${t('donation.dossier.official_title')}*
-🔢 *${t('donation.dossier.ref_label')}:* ${refNumber}
-
-${greeting}
-👤 *${t('donation.fields.job')}:* ${data.job}${salaryPart}
-📧 *Email:* ${data.email} • 📱 *Tel:* ${data.phone}
-🌍 *${t('donation.fields.country')}:* ${countryName} • *${t('donation.fields.city')}:* ${data.city} • *${t('donation.fields.address')}:* ${data.address}
-🎯 *${t('donation.fields.cause')}:* ${causeLabel}
-💰 *${t('donation.fields.amount')}:* ${data.amount}${benefPart}
-🗓️ *${t('donation.fields.dates')}:* ${data.dates}
-📝 *${t('donation.fields.description')}:*
-${data.description}
-
-✅ *${t('donation.fields.honor_cert')}*`;
+    return [
+      `🏛️ ════════════════════════════════`,
+      `   *${t('donation.dossier.official_header')}*`,
+      `   *${t('donation.dossier.official_dept')}*`,
+      `════════════════════════════════`,
+      ``,
+      `📋 *${t('donation.dossier.official_title')}*`,
+      `🔢 *${t('donation.dossier.ref_label')}:* \`${ref}\``,
+      `📅 *${t('donation.dossier.date_label')}:* ${submissionDate}`,
+      `📌 *${t('donation.dossier.status_val')}*`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `👤 *${t('donation.dossier.applicant_title')}*`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `• *${t('donation.fields.firstname')} & ${t('donation.fields.lastname')}:* ${data.firstname} ${data.lastname}`,
+      orgPart,
+      `• *${t('donation.fields.job')}:* ${data.job}`,
+      data.salary ? `• *${t('donation.fields.salary')}:* ${data.salary}` : '',
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `📍 *${t('donation.dossier.contact_title')}*`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `• *Email:* ${data.email}`,
+      `• *${t('donation.fields.phone')}:* ${data.phone}`,
+      `• *${t('donation.fields.country')}:* ${countryName}`,
+      `• *${t('donation.fields.city')}:* ${data.city}`,
+      `• *${t('donation.fields.address')}:* ${data.address}`,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `🎯 *${t('donation.dossier.project_title')}*`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `• *${t('donation.fields.cause')}:* ${causeLabel}`,
+      `• *${t('donation.fields.amount')}:* ${data.amount}`,
+      data.beneficiaries ? `• *${t('donation.fields.beneficiaries')}:* ${data.beneficiaries}` : '',
+      data.dates ? `• *${t('donation.fields.dates')}:* ${data.dates}` : '',
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `📝 *${t('donation.dossier.description_title')}*`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      data.description,
+      ``,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `⚖️ *${t('donation.dossier.declaration_title')}*`,
+      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
+      `✅ ${t('donation.fields.privacy_consent')}`,
+      `✅ ${t('donation.fields.honor_cert')}`,
+      ``,
+      `════════════════════════════════`,
+      `${t('donation.dossier.foundation_seal')}`,
+      `════════════════════════════════`,
+    ].filter(line => line !== '').join('\n');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -389,7 +403,8 @@ ${data.description}
     }
 
     const randomDigits = Math.floor(10000 + Math.random() * 90000);
-    const refNumber = `FPH-2026-DON-${randomDigits}`;
+    const ref = `FPH-2026-DON-${randomDigits}`;
+    setRefNumber(ref);
 
     const dateOptions: Intl.DateTimeFormatOptions = {
       day: 'numeric',
@@ -408,31 +423,7 @@ ${data.description}
       finalAmount = `${finalAmount} ${currSym} (${currCode})`;
     }
 
-    const docData: DonationDocumentData = {
-      firstname: formData.firstname,
-      lastname: formData.lastname,
-      org: formData.org,
-      job: formData.job,
-      salary: formData.salary,
-      email: formData.email,
-      phone: formData.phone,
-      country: formData.country,
-      countryName: getCountryName(formData.country),
-      city: formData.city,
-      address: formData.address,
-      cause: formData.cause,
-      causeLabel: getCauseLabel(formData.cause),
-      amount: finalAmount,
-      description: formData.description,
-      beneficiaries: formData.beneficiaries,
-      dates: formData.dates,
-      referenceNumber: refNumber,
-      submissionDate: submissionDateFormatted,
-    };
-
-    setDossierData(docData);
-
-    const message = generateWhatsAppMessage({ ...formData, amount: finalAmount }, refNumber);
+    const message = generateWhatsAppMessage({ ...formData, amount: finalAmount }, ref, submissionDateFormatted);
     setFormattedMessage(message);
 
     // Save timestamp to sessionStorage to prevent spamming
@@ -440,37 +431,11 @@ ${data.description}
 
     setIsSubmitted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // Auto-download PDF after a short delay (wait for DOM to render the dossier)
-    setTimeout(async () => {
-      const sanitizedName = `${formData.firstname}_${formData.lastname}`.replace(/[^a-zA-Z0-9]/g, '_');
-      const filename = `Expediente_FPH_${refNumber}_${sanitizedName}.pdf`;
-      await generatePdfFromElement({
-        elementId: 'donation-official-document',
-        filename,
-      });
-    }, 800);
   };
 
-  const handleDownloadPdf = async () => {
-    if (!dossierData) return;
-    setIsGeneratingPdf(true);
-    try {
-      const sanitizedName = `${dossierData.firstname}_${dossierData.lastname}`.replace(/[^a-zA-Z0-9]/g, '_');
-      const filename = `Expediente_FPH_${dossierData.referenceNumber}_${sanitizedName}.pdf`;
-      await generatePdfFromElement({
-        elementId: 'donation-official-document',
-        filename,
-      });
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsGeneratingPdf(false);
-    }
-  };
-
-  const handlePrint = () => {
-    window.print();
+  const handleSendViaWhatsApp = () => {
+    const phone = '61480801641';
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(formattedMessage)}`, '_blank');
   };
 
   const handleCopyMessage = () => {
@@ -479,164 +444,100 @@ ${data.description}
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSendViaWhatsApp = async () => {
-    // Step 1: Re-generate PDF and trigger download
-    setIsGeneratingPdf(true);
-    try {
-      if (dossierData) {
-        const sanitizedName = `${dossierData.firstname}_${dossierData.lastname}`.replace(/[^a-zA-Z0-9]/g, '_');
-        const filename = `Expediente_FPH_${dossierData.referenceNumber}_${sanitizedName}.pdf`;
-        await generatePdfFromElement({
-          elementId: 'donation-official-document',
-          filename,
-        });
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setIsGeneratingPdf(false);
-    }
-
-    // Step 2: Open WhatsApp with a concise message asking to attach the PDF
-    const phone = '61480801641';
-    const ref = dossierData?.referenceNumber || '';
-    const name = dossierData ? `${dossierData.firstname} ${dossierData.lastname}` : '';
-    const attachMsg: Record<string, string> = {
-      es: `Estimada Fundación Hancock,\n\nLe transmito en archivo adjunto mi Expediente Oficial de Donación.\n\n📌 Ref.: ${ref}\n👤 Solicitante: ${name}\n\nQuedo a su disposición para cualquier información complementaria.\n\nAtentamente.`,
-      fr: `Fondation Hancock,\n\nVeuillez trouver en pièce jointe mon Dossier Officiel de Demande de Don.\n\n📌 Réf.: ${ref}\n👤 Demandeur: ${name}\n\nJe reste disponible pour tout renseignement complémentaire.\n\nCordialement.`,
-      en: `Dear Hancock Foundation,\n\nPlease find attached my Official Grant Application Dossier.\n\n📌 Ref.: ${ref}\n👤 Applicant: ${name}\n\nI remain available for any further information.\n\nYours faithfully.`,
-      de: `Sehr geehrte Hancock-Stiftung,\n\nIm Anhang finden Sie mein offizielles Spenden-Dossier.\n\n📌 Ref.: ${ref}\n👤 Antragsteller: ${name}\n\nFür Rückfragen stehe ich gerne zur Verfügung.\n\nMit freundlichen Grüßen.`,
-      pt: `Estimada Fundação Hancock,\n\nEnvio em anexo o meu Dossiê Oficial de Pedido de Doação.\n\n📌 Ref.: ${ref}\n👤 Requerente: ${name}\n\nFico à disposição para qualquer informação adicional.\n\nCom os melhores cumprimentos.`,
-      ru: `Уважаемый Фонд Хэнкок,\n\nПрилагаю официальное досье моей заявки.\n\n📌 Реф.: ${ref}\n👤 Заявитель: ${name}\n\nГотов ответить на любые вопросы.\n\nС уважением.`,
-      zh: `尊敬的汉考克基金会，\n\n諻查收随信附上我的官方捐款申请档案。\n\n📌 编号: ${ref}\n👤 申请人: ${name}\n\n如有任何问题，请随时联系我。\n\n此致`,
-    };
-    const msg = attachMsg[language] || attachMsg['es'];
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
-  };
-
   const handleReset = () => {
     setFormData(initialFormData);
     setIsSubmitted(false);
     setFormattedMessage('');
-    setDossierData(null);
+    setRefNumber('');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // View: Success / Structured Official Confirmation
-  if (isSubmitted && dossierData) {
+  if (isSubmitted) {
     return (
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:py-16 font-sans text-brand-dark">
+      <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:py-16 font-sans text-brand-dark">
         {/* Top Success Banner */}
-        <div className="mb-8 rounded-2xl border border-brand-gold/30 bg-white p-6 sm:p-8 shadow-xl text-center flex flex-col items-center">
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 mb-3 ring-8 ring-emerald-50/50">
+        <div className="mb-6 rounded-2xl border border-brand-gold/30 bg-white p-6 sm:p-8 shadow-xl text-center flex flex-col items-center">
+          <div
+            style={{ backgroundColor: '#ecfdf5', color: '#059669' }}
+            className="flex h-16 w-16 items-center justify-center rounded-full mb-3"
+          >
             <CheckCircle2 className="h-10 w-10 animate-bounce" />
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl font-bold text-brand-blue mb-2">
             {t('donation.dossier.conf_banner')}
           </h2>
-          <p className="text-brand-gray text-sm max-w-2xl leading-relaxed mb-6">
+          <p className="text-brand-gray text-sm max-w-xl leading-relaxed mb-2">
             {t('donation.dossier.conf_sub')}
           </p>
+          <span className="inline-block font-mono text-xs bg-brand-blue/5 border border-brand-blue/15 text-brand-blue px-3 py-1 rounded-full mb-6">
+            {t('donation.dossier.ref_label')}: <strong>{refNumber}</strong>
+          </span>
 
-          {/* Action Toolbar */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-3xl">
-            {/* Step 1: Download PDF */}
-            <button
-              onClick={handleDownloadPdf}
-              disabled={isGeneratingPdf}
-              className="flex items-center justify-center space-x-2 rounded-xl bg-brand-gold hover:bg-brand-gold-hover text-brand-blue font-bold text-sm py-4 px-5 transition shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 cursor-pointer"
-            >
-              <Download className={`h-5 w-5 ${isGeneratingPdf ? 'animate-spin' : ''}`} />
-              <div className="text-left">
-                <div className="font-bold">
-                  {isGeneratingPdf ? t('donation.dossier.generating_pdf') : t('donation.dossier.download_pdf')}
-                </div>
-                <div className="text-[10px] font-normal opacity-75">{t('donation.dossier.step1_label')}</div>
-              </div>
-            </button>
+          {/* Primary: Send via WhatsApp */}
+          <button
+            onClick={handleSendViaWhatsApp}
+            className="w-full max-w-sm flex items-center justify-center space-x-3 rounded-xl text-white font-bold text-base py-4 px-6 transition shadow-lg hover:shadow-xl active:scale-95 cursor-pointer mb-3"
+            style={{ backgroundColor: '#25D366' }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#20ba5a')}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#25D366')}
+          >
+            <Send className="h-5 w-5" />
+            <span>{t('donation.dossier.send_whatsapp')}</span>
+          </button>
 
-            {/* Step 2: Send PDF via WhatsApp */}
-            <button
-              onClick={handleSendViaWhatsApp}
-              disabled={isGeneratingPdf}
-              className="flex items-center justify-center space-x-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-sm py-4 px-5 transition shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 cursor-pointer"
-            >
-              <Send className="h-5 w-5" />
-              <div className="text-left">
-                <div className="font-bold">{t('donation.dossier.whatsapp_pdf_btn')}</div>
-                <div className="text-[10px] font-normal opacity-80">{t('donation.dossier.step2_label')}</div>
-              </div>
-            </button>
-          </div>
-
-          {/* Secondary actions */}
-          <div className="grid grid-cols-2 gap-2 w-full max-w-3xl mt-2">
-            {/* Print */}
-            <button
-              onClick={handlePrint}
-              className="flex items-center justify-center space-x-2 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold text-xs py-3 px-4 transition cursor-pointer"
-            >
-              <Printer className="h-4 w-4" />
-              <span>{t('donation.dossier.print_dossier')}</span>
-            </button>
-
-            {/* Copy text */}
+          {/* Secondary: Copy + New */}
+          <div className="flex items-center gap-3 w-full max-w-sm">
             <button
               onClick={handleCopyMessage}
-              className="flex items-center justify-center space-x-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 font-semibold text-xs py-3 px-4 transition cursor-pointer"
+              className="flex-1 flex items-center justify-center space-x-2 rounded-xl border-2 border-brand-gold text-brand-blue hover:bg-brand-gold/10 font-semibold text-sm py-2.5 px-4 transition cursor-pointer"
             >
               <Copy className="h-4 w-4 text-brand-gold" />
               <span>{copied ? t('donation.copied') : t('donation.copy_btn')}</span>
             </button>
-          </div>
-
-          {/* Instruction banner: attach PDF in WhatsApp */}
-          <div className="w-full max-w-3xl mt-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 p-3 flex items-start space-x-3">
-            <span className="text-2xl flex-shrink-0">📎</span>
-            <div className="text-xs text-gray-700 leading-relaxed">
-              <span className="font-bold text-[#128C7E]">{t('donation.dossier.pdf_attach_tip_title')}</span>{' '}
-              {t('donation.dossier.pdf_attach_tip')}
-            </div>
-          </div>
-
-          <div className="mt-6 flex items-center justify-between w-full max-w-3xl pt-4 border-t border-gray-100 text-xs">
-            <button
-              onClick={() => setShowRawMessage(!showRawMessage)}
-              className="flex items-center space-x-1 text-gray-500 hover:text-brand-blue font-medium transition cursor-pointer"
-            >
-              <FileText className="h-3.5 w-3.5" />
-              <span>{showRawMessage ? t('donation.dossier.summary_text') : t('donation.dossier.send_whatsapp')}</span>
-              {showRawMessage ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
-            </button>
-
             <button
               onClick={handleReset}
-              className="flex items-center space-x-1.5 font-semibold text-brand-gold hover:text-brand-gold-hover transition cursor-pointer"
+              className="flex-1 flex items-center justify-center space-x-2 rounded-xl border-2 border-gray-200 text-brand-gray hover:bg-gray-50 font-semibold text-sm py-2.5 px-4 transition cursor-pointer"
             >
-              <RefreshCw className="h-3.5 w-3.5" />
+              <RefreshCw className="h-4 w-4" />
               <span>{t('donation.dossier.new_application')}</span>
             </button>
           </div>
+        </div>
 
-          {/* Collapsible raw WhatsApp message preview */}
+        {/* Structured message preview */}
+        <div className="rounded-2xl border border-brand-gold/20 bg-white shadow-md">
+          <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100">
+            <button
+              onClick={() => setShowRawMessage(!showRawMessage)}
+              className="flex items-center space-x-2 text-sm font-semibold text-brand-blue hover:text-brand-gold transition cursor-pointer"
+            >
+              <FileText className="h-4 w-4" />
+              <span>{t('donation.dossier.send_whatsapp')}</span>
+              {showRawMessage ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </button>
+            <span className="text-[10px] text-gray-400 font-mono">{refNumber}</span>
+          </div>
+
           {showRawMessage && (
-            <div className="w-full max-w-3xl bg-gray-50 border border-gray-200 rounded-lg p-4 text-left mt-4 font-mono text-xs whitespace-pre-wrap leading-relaxed select-all">
+            <div
+              className="p-5 font-mono text-xs leading-relaxed whitespace-pre-wrap select-all"
+              style={{ backgroundColor: '#f9fafb', color: '#1f2937' }}
+            >
               {formattedMessage}
             </div>
           )}
-        </div>
 
-        {/* The Official Dossier Document View (Used for preview and high-res PDF generation) */}
-        <div className="rounded-2xl border border-brand-gold/20 bg-gray-100 p-3 sm:p-6 shadow-inner">
-          <div className="mb-4 flex items-center justify-between px-2 text-xs text-gray-500">
-            <span className="font-semibold uppercase tracking-wider text-brand-blue flex items-center space-x-1">
-              <ShieldCheck className="h-4 w-4 text-brand-gold inline" />
-              <span>Aperçu officiel du dossier A4 certifié</span>
-            </span>
-            <span>Réf : {dossierData.referenceNumber}</span>
-          </div>
-
-          <DonationPdfDocument data={dossierData} id="donation-official-document" />
+          {!showRawMessage && (
+            <button
+              onClick={() => setShowRawMessage(true)}
+              className="w-full py-4 text-sm text-brand-gray hover:text-brand-blue transition cursor-pointer flex items-center justify-center space-x-2"
+            >
+              <FileText className="h-4 w-4" />
+              <span>{t('donation.dossier.summary_text')}</span>
+              <ChevronDown className="h-4 w-4" />
+            </button>
+          )}
         </div>
       </div>
     );
