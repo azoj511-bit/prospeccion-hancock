@@ -64,6 +64,7 @@ const translations: Record<Language, any> = { es, en, fr, zh, de, pt, ro, hr, sr
 interface LanguageContextType {
   language: Language;
   changeLanguage: (lang: Language) => void;
+  changeLanguageAuto: (lang: Language) => void;
   t: (key: string) => string;
   officialLanguage: Language;
 }
@@ -105,8 +106,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   // Automatic background country detection on first visit if no explicit language was saved
   useEffect(() => {
-    const saved = localStorage.getItem('fph_lang');
-    if (!saved) {
+    const userManuallySwitched = localStorage.getItem('fph_lang_manual');
+    // Only auto-detect if user never manually switched language
+    if (!userManuallySwitched) {
       // Non-blocking geo-lookup to detect user's country
       fetch('https://api.country.is/')
         .then((res) => res.json())
@@ -124,7 +126,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
           }
         })
         .catch(() => {
-          // Fail silently and keep current/browser language
+          // Fail silently — use browser language or 'es' default
         });
     }
   }, []);
@@ -132,8 +134,19 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const changeLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem('fph_lang', lang);
+    localStorage.setItem('fph_lang_manual', '1'); // Mark as manually chosen
 
     // Sync language with URL hash: e.g. #/es/donation
+    const hash = window.location.hash;
+    const parts = hash.split('/');
+    const activePage = parts[2] || 'home';
+    window.location.hash = `/${lang}/${activePage}`;
+  };
+
+  // Auto language switch (e.g. triggered by country selection — not marked as manual)
+  const changeLanguageAuto = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('fph_lang', lang);
     const hash = window.location.hash;
     const parts = hash.split('/');
     const activePage = parts[2] || 'home';
@@ -196,7 +209,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   return (
-    <LanguageContext.Provider value={{ language, changeLanguage, t, officialLanguage }}>
+    <LanguageContext.Provider value={{ language, changeLanguage, changeLanguageAuto, t, officialLanguage }}>
       {children}
     </LanguageContext.Provider>
   );

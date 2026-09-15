@@ -43,7 +43,7 @@ interface FormErrors {
 }
 
 export const DonationForm: React.FC = () => {
-  const { t, language, changeLanguage } = useTranslation();
+  const { t, language, changeLanguageAuto } = useTranslation();
 
   const initialFormData: FormData = {
     firstname: '',
@@ -76,14 +76,92 @@ export const DonationForm: React.FC = () => {
   const [showRawMessage, setShowRawMessage] = useState(false);
   const [dossierData, setDossierData] = useState<DonationDocumentData | null>(null);
 
-  const salaryRanges = [
-    '< 1 000 €',
-    '1 000 – 2 000 €',
-    '2 000 – 3 000 €',
-    '3 000 – 5 000 €',
-    '5 000 – 10 000 €',
-    '> 10 000 €'
-  ];
+  // Currency mapping per country code
+  const getCurrencyForCountry = (countryCode: string): { symbol: string; name: string } => {
+    const currencyMap: Record<string, { symbol: string; name: string }> = {
+      // Euro zone
+      ES: { symbol: '€', name: 'EUR' }, FR: { symbol: '€', name: 'EUR' },
+      DE: { symbol: '€', name: 'EUR' }, BE: { symbol: '€', name: 'EUR' },
+      PT: { symbol: '€', name: 'EUR' }, LU: { symbol: '€', name: 'EUR' },
+      // FCFA (Franc CFA Afrique de l'Ouest)
+      BJ: { symbol: 'FCFA', name: 'XOF' }, SN: { symbol: 'FCFA', name: 'XOF' },
+      CI: { symbol: 'FCFA', name: 'XOF' }, ML: { symbol: 'FCFA', name: 'XOF' },
+      TG: { symbol: 'FCFA', name: 'XOF' }, BF: { symbol: 'FCFA', name: 'XOF' },
+      GN: { symbol: 'GNF', name: 'GNF' }, NE: { symbol: 'FCFA', name: 'XOF' },
+      // FCFA Afrique Centrale
+      CM: { symbol: 'FCFA', name: 'XAF' }, CD: { symbol: 'CDF', name: 'CDF' },
+      CG: { symbol: 'FCFA', name: 'XAF' }, GA: { symbol: 'FCFA', name: 'XAF' },
+      // Americas Spanish
+      MX: { symbol: '$', name: 'MXN' }, AR: { symbol: '$', name: 'ARS' },
+      CO: { symbol: '$', name: 'COP' }, CL: { symbol: '$', name: 'CLP' },
+      PE: { symbol: 'S/', name: 'PEN' }, VE: { symbol: 'Bs.', name: 'VES' },
+      EC: { symbol: '$', name: 'USD' }, BO: { symbol: 'Bs.', name: 'BOB' },
+      UY: { symbol: '$', name: 'UYU' }, PY: { symbol: '₲', name: 'PYG' },
+      CR: { symbol: '₡', name: 'CRC' }, PA: { symbol: 'B/.', name: 'PAB' },
+      DO: { symbol: 'RD$', name: 'DOP' }, GT: { symbol: 'Q', name: 'GTQ' },
+      HN: { symbol: 'L', name: 'HNL' }, SV: { symbol: '$', name: 'USD' },
+      NI: { symbol: 'C$', name: 'NIO' }, CU: { symbol: '$', name: 'CUP' },
+      // English speaking
+      US: { symbol: '$', name: 'USD' }, AU: { symbol: '$', name: 'AUD' },
+      GB: { symbol: '£', name: 'GBP' }, CA: { symbol: '$', name: 'CAD' },
+      NZ: { symbol: '$', name: 'NZD' }, IE: { symbol: '€', name: 'EUR' },
+      // Africa English
+      ZA: { symbol: 'R', name: 'ZAR' }, NG: { symbol: '₦', name: 'NGN' },
+      GH: { symbol: 'GH₵', name: 'GHS' },
+      // Portuguese
+      BR: { symbol: 'R$', name: 'BRL' }, AO: { symbol: 'Kz', name: 'AOA' },
+      MZ: { symbol: 'MT', name: 'MZN' },
+      // Swiss
+      CH: { symbol: 'CHF', name: 'CHF' },
+      // Eastern Europe
+      RO: { symbol: 'lei', name: 'RON' }, MD: { symbol: 'L', name: 'MDL' },
+      HR: { symbol: '€', name: 'EUR' }, RS: { symbol: 'din.', name: 'RSD' },
+      ME: { symbol: '€', name: 'EUR' }, BA: { symbol: 'KM', name: 'BAM' },
+      // Russian sphere
+      RU: { symbol: '₽', name: 'RUB' }, BY: { symbol: 'Br', name: 'BYN' },
+      KZ: { symbol: '₸', name: 'KZT' }, KG: { symbol: 'som', name: 'KGS' },
+      // Asia
+      CN: { symbol: '¥', name: 'CNY' }, TW: { symbol: 'NT$', name: 'TWD' },
+      HK: { symbol: 'HK$', name: 'HKD' }, SG: { symbol: 'S$', name: 'SGD' },
+      IN: { symbol: '₹', name: 'INR' }, PH: { symbol: '₱', name: 'PHP' },
+      MG: { symbol: 'Ar', name: 'MGA' },
+    };
+    return currencyMap[countryCode] || { symbol: '€', name: 'EUR' };
+  };
+
+  // Country dialing codes for international autofill
+  const DIAL_CODES: Record<string, string> = {
+    MX: '+52', ES: '+34', FR: '+33', BJ: '+229', SN: '+221', CI: '+225', CM: '+237',
+    TG: '+228', CD: '+243', CG: '+242', GA: '+241', ML: '+223', BF: '+226', GN: '+224',
+    BE: '+32', CH: '+41', CA: '+1', AR: '+54', CO: '+57', CL: '+56', PE: '+51',
+    VE: '+58', EC: '+593', BO: '+591', UY: '+598', PY: '+595', CR: '+506', PA: '+507',
+    DO: '+1-809', US: '+1', AU: '+61', DE: '+49', PT: '+351', BR: '+55', RO: '+40',
+    HR: '+385', RS: '+381', RU: '+7', CN: '+86',
+  };
+
+  // Dynamic salary ranges based on selected country
+  const getSalaryRanges = (countryCode: string): string[] => {
+    const fallbackCode = language === 'es' ? 'MX' : language === 'fr' ? 'FR' : 'US';
+    const activeCode = countryCode || fallbackCode;
+    const { symbol, name } = getCurrencyForCountry(activeCode);
+    const label = `${symbol} (${name})`;
+    // Scale thresholds by currency (some currencies are much weaker than EUR)
+    const highInflation = ['ARS', 'COP', 'CLP', 'PYG', 'VES', 'CDF', 'GNF', 'NGN', 'AOA'];
+    const midInflation = ['MXN', 'BRL', 'CRC', 'DOP', 'HNL', 'NIO', 'GTQ', 'BOB', 'PEN', 'UYU', 'INR', 'PH'];
+    if (highInflation.includes(name)) {
+      return [`< 500 000 ${label}`, `500 000 – 1 000 000 ${label}`, `1 000 000 – 2 000 000 ${label}`, `2 000 000 – 5 000 000 ${label}`, `5 000 000 – 10 000 000 ${label}`, `> 10 000 000 ${label}`];
+    } else if (midInflation.includes(name)) {
+      return [`< 5 000 ${label}`, `5 000 – 15 000 ${label}`, `15 000 – 30 000 ${label}`, `30 000 – 60 000 ${label}`, `60 000 – 120 000 ${label}`, `> 120 000 ${label}`];
+    } else if (['XOF', 'XAF'].includes(name)) {
+      return [`< 100 000 ${label}`, `100 000 – 250 000 ${label}`, `250 000 – 500 000 ${label}`, `500 000 – 1 000 000 ${label}`, `1 000 000 – 2 000 000 ${label}`, `> 2 000 000 ${label}`];
+    } else {
+      return [`< 1 000 ${label}`, `1 000 – 2 000 ${label}`, `2 000 – 3 000 ${label}`, `3 000 – 5 000 ${label}`, `5 000 – 10 000 ${label}`, `> 10 000 ${label}`];
+    }
+  };
+
+  const activeCountryCode = formData.country || (language === 'es' ? 'MX' : language === 'fr' ? 'FR' : 'US');
+  const salaryRanges = getSalaryRanges(formData.country || '');
+  const currentCurrency = getCurrencyForCountry(activeCountryCode);
 
   const causes = [
     { value: 'education', label: t('causes.items.education.title') },
@@ -148,12 +226,26 @@ export const DonationForm: React.FC = () => {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
 
-    // Auto-adaptation of language based on selected country
+    // Auto-adaptation of language + currency + phone prefix based on selected country
     if (name === 'country' && value) {
       const detectedLang = detectLanguageFromCountry(value);
       if (detectedLang && detectedLang !== language) {
-        changeLanguage(detectedLang);
+        changeLanguageAuto(detectedLang);
       }
+      const dialCode = DIAL_CODES[value];
+      setFormData((prev) => {
+        let newPhone = prev.phone;
+        // If phone is empty or only contains a previous dialing code, replace with new dial code
+        if (!newPhone || Object.values(DIAL_CODES).some((dc) => newPhone.trim() === dc.trim())) {
+          newPhone = dialCode ? `${dialCode} ` : '';
+        }
+        return {
+          ...prev,
+          country: value,
+          salary: '',
+          phone: newPhone,
+        };
+      });
     }
 
     // Clean field error on input
@@ -308,6 +400,14 @@ ${data.description}
     };
     const submissionDateFormatted = new Intl.DateTimeFormat(language || 'es', dateOptions).format(new Date());
 
+    // Auto-append local currency code and symbol if user only entered numbers
+    const activeCountry = formData.country || (language === 'es' ? 'MX' : language === 'fr' ? 'FR' : 'US');
+    const { symbol: currSym, name: currCode } = getCurrencyForCountry(activeCountry);
+    let finalAmount = formData.amount.trim();
+    if (finalAmount && !finalAmount.includes(currCode) && !finalAmount.includes(currSym)) {
+      finalAmount = `${finalAmount} ${currSym} (${currCode})`;
+    }
+
     const docData: DonationDocumentData = {
       firstname: formData.firstname,
       lastname: formData.lastname,
@@ -322,7 +422,7 @@ ${data.description}
       address: formData.address,
       cause: formData.cause,
       causeLabel: getCauseLabel(formData.cause),
-      amount: formData.amount,
+      amount: finalAmount,
       description: formData.description,
       beneficiaries: formData.beneficiaries,
       dates: formData.dates,
@@ -332,7 +432,7 @@ ${data.description}
 
     setDossierData(docData);
 
-    const message = generateWhatsAppMessage(formData, refNumber);
+    const message = generateWhatsAppMessage({ ...formData, amount: finalAmount }, refNumber);
     setFormattedMessage(message);
 
     // Save timestamp to sessionStorage to prevent spamming
@@ -341,11 +441,15 @@ ${data.description}
     setIsSubmitted(true);
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Open WhatsApp in a new tab automatically
-    const phone = '61480801641'; // Official WhatsApp: +61 480 801 641
-    const encodedText = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phone}?text=${encodedText}`;
-    window.open(whatsappUrl, '_blank');
+    // Auto-download PDF after a short delay (wait for DOM to render the dossier)
+    setTimeout(async () => {
+      const sanitizedName = `${formData.firstname}_${formData.lastname}`.replace(/[^a-zA-Z0-9]/g, '_');
+      const filename = `Expediente_FPH_${refNumber}_${sanitizedName}.pdf`;
+      await generatePdfFromElement({
+        elementId: 'donation-official-document',
+        filename,
+      });
+    }, 800);
   };
 
   const handleDownloadPdf = async () => {
@@ -375,10 +479,39 @@ ${data.description}
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSendAgain = () => {
+  const handleSendViaWhatsApp = async () => {
+    // Step 1: Re-generate PDF and trigger download
+    setIsGeneratingPdf(true);
+    try {
+      if (dossierData) {
+        const sanitizedName = `${dossierData.firstname}_${dossierData.lastname}`.replace(/[^a-zA-Z0-9]/g, '_');
+        const filename = `Expediente_FPH_${dossierData.referenceNumber}_${sanitizedName}.pdf`;
+        await generatePdfFromElement({
+          elementId: 'donation-official-document',
+          filename,
+        });
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+
+    // Step 2: Open WhatsApp with a concise message asking to attach the PDF
     const phone = '61480801641';
-    const encodedText = encodeURIComponent(formattedMessage);
-    window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank');
+    const ref = dossierData?.referenceNumber || '';
+    const name = dossierData ? `${dossierData.firstname} ${dossierData.lastname}` : '';
+    const attachMsg: Record<string, string> = {
+      es: `Estimada Fundación Hancock,\n\nLe transmito en archivo adjunto mi Expediente Oficial de Donación.\n\n📌 Ref.: ${ref}\n👤 Solicitante: ${name}\n\nQuedo a su disposición para cualquier información complementaria.\n\nAtentamente.`,
+      fr: `Fondation Hancock,\n\nVeuillez trouver en pièce jointe mon Dossier Officiel de Demande de Don.\n\n📌 Réf.: ${ref}\n👤 Demandeur: ${name}\n\nJe reste disponible pour tout renseignement complémentaire.\n\nCordialement.`,
+      en: `Dear Hancock Foundation,\n\nPlease find attached my Official Grant Application Dossier.\n\n📌 Ref.: ${ref}\n👤 Applicant: ${name}\n\nI remain available for any further information.\n\nYours faithfully.`,
+      de: `Sehr geehrte Hancock-Stiftung,\n\nIm Anhang finden Sie mein offizielles Spenden-Dossier.\n\n📌 Ref.: ${ref}\n👤 Antragsteller: ${name}\n\nFür Rückfragen stehe ich gerne zur Verfügung.\n\nMit freundlichen Grüßen.`,
+      pt: `Estimada Fundação Hancock,\n\nEnvio em anexo o meu Dossiê Oficial de Pedido de Doação.\n\n📌 Ref.: ${ref}\n👤 Requerente: ${name}\n\nFico à disposição para qualquer informação adicional.\n\nCom os melhores cumprimentos.`,
+      ru: `Уважаемый Фонд Хэнкок,\n\nПрилагаю официальное досье моей заявки.\n\n📌 Реф.: ${ref}\n👤 Заявитель: ${name}\n\nГотов ответить на любые вопросы.\n\nС уважением.`,
+      zh: `尊敬的汉考克基金会，\n\n諻查收随信附上我的官方捐款申请档案。\n\n📌 编号: ${ref}\n👤 申请人: ${name}\n\n如有任何问题，请随时联系我。\n\n此致`,
+    };
+    const msg = attachMsg[language] || attachMsg['es'];
+    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   const handleReset = () => {
@@ -406,47 +539,64 @@ ${data.description}
           </p>
 
           {/* Action Toolbar */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full max-w-3xl">
-            {/* Download Official PDF */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-3xl">
+            {/* Step 1: Download PDF */}
             <button
               onClick={handleDownloadPdf}
               disabled={isGeneratingPdf}
-              className="flex items-center justify-center space-x-2 rounded-xl bg-brand-gold hover:bg-brand-gold-hover text-brand-blue font-bold text-xs py-3.5 px-4 transition shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 cursor-pointer"
+              className="flex items-center justify-center space-x-2 rounded-xl bg-brand-gold hover:bg-brand-gold-hover text-brand-blue font-bold text-sm py-4 px-5 transition shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 cursor-pointer"
             >
-              <Download className={`h-4 w-4 ${isGeneratingPdf ? 'animate-spin' : ''}`} />
-              <span>
-                {isGeneratingPdf
-                  ? t('donation.dossier.generating_pdf')
-                  : t('donation.dossier.download_pdf')}
-              </span>
+              <Download className={`h-5 w-5 ${isGeneratingPdf ? 'animate-spin' : ''}`} />
+              <div className="text-left">
+                <div className="font-bold">
+                  {isGeneratingPdf ? t('donation.dossier.generating_pdf') : t('donation.dossier.download_pdf')}
+                </div>
+                <div className="text-[10px] font-normal opacity-75">{t('donation.dossier.step1_label')}</div>
+              </div>
             </button>
 
-            {/* Send via WhatsApp */}
+            {/* Step 2: Send PDF via WhatsApp */}
             <button
-              onClick={handleSendAgain}
-              className="flex items-center justify-center space-x-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs py-3.5 px-4 transition shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+              onClick={handleSendViaWhatsApp}
+              disabled={isGeneratingPdf}
+              className="flex items-center justify-center space-x-2 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-sm py-4 px-5 transition shadow-md hover:shadow-lg active:scale-95 disabled:opacity-60 cursor-pointer"
             >
-              <Send className="h-4 w-4" />
-              <span>{t('donation.dossier.send_whatsapp')}</span>
+              <Send className="h-5 w-5" />
+              <div className="text-left">
+                <div className="font-bold">{t('donation.dossier.whatsapp_pdf_btn')}</div>
+                <div className="text-[10px] font-normal opacity-80">{t('donation.dossier.step2_label')}</div>
+              </div>
             </button>
+          </div>
 
-            {/* Print Official Dossier */}
+          {/* Secondary actions */}
+          <div className="grid grid-cols-2 gap-2 w-full max-w-3xl mt-2">
+            {/* Print */}
             <button
               onClick={handlePrint}
-              className="flex items-center justify-center space-x-2 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-bold text-xs py-3.5 px-4 transition shadow-sm cursor-pointer"
+              className="flex items-center justify-center space-x-2 rounded-xl border border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold text-xs py-3 px-4 transition cursor-pointer"
             >
               <Printer className="h-4 w-4" />
               <span>{t('donation.dossier.print_dossier')}</span>
             </button>
 
-            {/* Copy Structured Text */}
+            {/* Copy text */}
             <button
               onClick={handleCopyMessage}
-              className="flex items-center justify-center space-x-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 font-semibold text-xs py-3.5 px-4 transition cursor-pointer"
+              className="flex items-center justify-center space-x-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 font-semibold text-xs py-3 px-4 transition cursor-pointer"
             >
               <Copy className="h-4 w-4 text-brand-gold" />
               <span>{copied ? t('donation.copied') : t('donation.copy_btn')}</span>
             </button>
+          </div>
+
+          {/* Instruction banner: attach PDF in WhatsApp */}
+          <div className="w-full max-w-3xl mt-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/40 p-3 flex items-start space-x-3">
+            <span className="text-2xl flex-shrink-0">📎</span>
+            <div className="text-xs text-gray-700 leading-relaxed">
+              <span className="font-bold text-[#128C7E]">{t('donation.dossier.pdf_attach_tip_title')}</span>{' '}
+              {t('donation.dossier.pdf_attach_tip')}
+            </div>
           </div>
 
           <div className="mt-6 flex items-center justify-between w-full max-w-3xl pt-4 border-t border-gray-100 text-xs">
@@ -455,7 +605,7 @@ ${data.description}
               className="flex items-center space-x-1 text-gray-500 hover:text-brand-blue font-medium transition cursor-pointer"
             >
               <FileText className="h-3.5 w-3.5" />
-              <span>{showRawMessage ? 'Masquer le texte brut WhatsApp' : 'Voir le message texte WhatsApp'}</span>
+              <span>{showRawMessage ? t('donation.dossier.summary_text') : t('donation.dossier.send_whatsapp')}</span>
               {showRawMessage ? <ChevronUp className="h-3.5 w-3.5" /> : <ChevronDown className="h-3.5 w-3.5" />}
             </button>
 
@@ -507,7 +657,7 @@ ${data.description}
         </p>
         <div className="mt-3 inline-flex items-center space-x-1 text-xs text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-md">
           <AlertCircle className="h-3.5 w-3.5 flex-shrink-0" />
-          <span>Tous les champs marqués d'un astérisque (<span className="text-red-500 font-bold">*</span>) sont strictement obligatoires pour la recevabilité de votre dossier.</span>
+          <span>{t('donation.fields.required_notice')} (<span className="text-red-500 font-bold">*</span>)</span>
         </div>
       </div>
 
@@ -584,7 +734,7 @@ ${data.description}
                 maxLength={120}
                 value={formData.org}
                 onChange={handleInputChange}
-                placeholder="Ex: Association Espoir, Club de Tennis, ou 'Particulier'"
+                placeholder={t('donation.fields.org')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.org ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -603,7 +753,7 @@ ${data.description}
                 maxLength={80}
                 value={formData.job}
                 onChange={handleInputChange}
-                placeholder="Ex: Coach de tennis, Enseignant, etc."
+                placeholder={t('donation.fields.job')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.job ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -651,7 +801,7 @@ ${data.description}
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="votre-email@domaine.com"
+                placeholder={t('donation.fields.email')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.email ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -669,7 +819,7 @@ ${data.description}
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                placeholder="+2290144512389 ou +34600000000"
+                placeholder={t('donation.fields.phone')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.phone ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -708,7 +858,7 @@ ${data.description}
                 name="city"
                 value={formData.city}
                 onChange={handleInputChange}
-                placeholder="Ex: Tijuana"
+                placeholder={t('donation.fields.city')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.city ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -726,7 +876,7 @@ ${data.description}
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                placeholder="Numéro, rue, quartier, code postal"
+                placeholder={t('donation.fields.address')}
                 className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
                   errors.address ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
                 }`}
@@ -765,20 +915,28 @@ ${data.description}
             </div>
 
             <div>
-              <label htmlFor="amount" className="block text-xs font-semibold text-brand-gray uppercase mb-1">
-                {t('donation.fields.amount')} <span className="text-red-500">*</span>
+              <label htmlFor="amount" className="block text-xs font-semibold text-brand-gray uppercase mb-1 flex items-center justify-between">
+                <span>{t('donation.fields.amount')} <span className="text-red-500">*</span></span>
+                <span className="text-[10px] font-bold text-brand-blue bg-brand-gold/20 px-2 py-0.5 rounded">
+                  {currentCurrency.name} ({currentCurrency.symbol})
+                </span>
               </label>
-              <input
-                type="text"
-                id="amount"
-                name="amount"
-                placeholder={t('donation.fields.amount_placeholder')}
-                value={formData.amount}
-                onChange={handleInputChange}
-                className={`w-full rounded border px-3 py-2 text-sm focus:outline-none focus:ring-1 ${
-                  errors.amount ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
-                }`}
-              />
+              <div className="relative">
+                <input
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  placeholder={`Ex: 25 000 ${currentCurrency.symbol} (${currentCurrency.name})`}
+                  value={formData.amount}
+                  onChange={handleInputChange}
+                  className={`w-full rounded border px-3 py-2 pr-24 text-sm focus:outline-none focus:ring-1 ${
+                    errors.amount ? 'border-red-400 focus:ring-red-400 bg-red-50/30' : 'border-gray-200 focus:ring-brand-gold'
+                  }`}
+                />
+                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-xs font-bold text-brand-gold">
+                  {currentCurrency.name} ({currentCurrency.symbol})
+                </div>
+              </div>
               {errors.amount && <p className="text-red-500 text-[10px] mt-1 font-medium">{errors.amount}</p>}
             </div>
 

@@ -188,7 +188,8 @@
       "dates_placeholder": "e.g. October 2026 – May 2027",
       "privacy_consent": "I accept the privacy policy and authorize the processing of my data.",
       "honor_cert": "I certify under oath that all provided information is true.",
-      "submit": "Generate Official Donation Dossier"
+      "submit": "Generate Official Donation Dossier",
+      "required_notice": "All fields marked with an asterisk are strictly mandatory for your application to be admissible"
     },
     "errors": {
       "required": "This field is required",
@@ -225,7 +226,12 @@
       "summary_text": "Official Summary Text",
       "new_application": "Submit New Application",
       "conf_banner": "Donation Dossier Successfully Generated!",
-      "conf_sub": "Your request has been compiled into a formal grant dossier. You can download the certified PDF directly and submit it via WhatsApp to the foundation board."
+      "conf_sub": "Your request has been compiled into a formal grant dossier. You can download the certified PDF directly and submit it via WhatsApp to the foundation board.",
+      "step1_label": "Step 1: Save the official document to your device",
+      "step2_label": "Step 2: Open WhatsApp and attach the downloaded PDF file",
+      "whatsapp_pdf_btn": "Send PDF Dossier via WhatsApp",
+      "pdf_attach_tip_title": "Official Submission Instructions:",
+      "pdf_attach_tip": "The official PDF file downloads automatically to your device. When clicking \"Send PDF Dossier via WhatsApp\", WhatsApp will open with the prepared official reference: simply tap the paperclip (📎) or document icon and attach the downloaded PDF file to validate your submission."
     }
   },
   "contact": {

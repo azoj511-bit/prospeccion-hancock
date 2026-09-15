@@ -188,7 +188,8 @@
       "dates_placeholder": "Ej. Octubre 2026 – Mayo 2027",
       "privacy_consent": "Acepto la política de privacidad y autorizo el procesamiento de mis datos.",
       "honor_cert": "Certifico bajo juramento que toda la información provista es verídica.",
-      "submit": "Generar Expediente Oficial de Donación"
+      "submit": "Generar Expediente Oficial de Donación",
+      "required_notice": "Todos los campos marcados con un asterisco son estrictamente obligatorios para la recepción de su expediente"
     },
     "errors": {
       "required": "Este campo es obligatorio",
@@ -225,7 +226,12 @@
       "summary_text": "Texto resumido oficial",
       "new_application": "Nueva Solicitud de Donación",
       "conf_banner": "¡Expediente Oficial Generado con Éxito!",
-      "conf_sub": "Su solicitud ha sido estructurada en un expediente formal de mérito. Puede descargarlo directamente en formato PDF oficial y enviarlo vía WhatsApp a la secretaría de la fundación."
+      "conf_sub": "Su solicitud ha sido estructurada en un expediente formal de mérito. Puede descargarlo directamente en formato PDF oficial y enviarlo vía WhatsApp a la secretaría de la fundación.",
+      "step1_label": "Paso 1: Guardar el documento oficial en su dispositivo",
+      "step2_label": "Paso 2: Abrir WhatsApp y adjuntar el archivo PDF descargado",
+      "whatsapp_pdf_btn": "Enviar Expediente PDF vía WhatsApp",
+      "pdf_attach_tip_title": "Instrucción de Envío Oficial:",
+      "pdf_attach_tip": "El archivo PDF oficial se descarga automáticamente en su dispositivo. Al pulsar en « Enviar Expediente PDF vía WhatsApp », se abrirá WhatsApp con el mensaje oficial preparado: solo debe pulsar el icono de clip (📎) o documento y adjuntar el archivo PDF descargado para validar la recepción de su solicitud."
     }
   },
   "contact": {

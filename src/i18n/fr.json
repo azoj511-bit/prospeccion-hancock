@@ -188,7 +188,8 @@
       "dates_placeholder": "Ex: Octobre 2026 – Mai 2027",
       "privacy_consent": "J'accepte la politique de confidentialité et autorise le traitement de mes données.",
       "honor_cert": "Je certifie sur l'honneur que toutes les informations fournies sont exactes.",
-      "submit": "Générer le Dossier Officiel de Don"
+      "submit": "Générer le Dossier Officiel de Don",
+      "required_notice": "Tous les champs marqués d'un astérisque sont strictement obligatoires pour la recevabilité de votre dossier"
     },
     "errors": {
       "required": "Ce champ est obligatoire",
@@ -225,7 +226,12 @@
       "summary_text": "Texte récapitulatif officiel",
       "new_application": "Déposer une Nouvelle Demande",
       "conf_banner": "Dossier de Don Généré avec Succès !",
-      "conf_sub": "Votre demande a été structurée en un dossier officiel d'attribution. Vous pouvez le télécharger immédiatement au format PDF officiel et le transmettre via WhatsApp au secrétariat de la fondation."
+      "conf_sub": "Votre demande a été structurée en un dossier officiel d'attribution. Vous pouvez le télécharger immédiatement au format PDF officiel et le transmettre via WhatsApp au secrétariat de la fondation.",
+      "step1_label": "Étape 1 : Enregistrer le document officiel sur votre appareil",
+      "step2_label": "Étape 2 : Ouvrir WhatsApp et joindre le fichier PDF téléchargé",
+      "whatsapp_pdf_btn": "Envoyer le Dossier PDF via WhatsApp",
+      "pdf_attach_tip_title": "Instruction d'Envoi Officiel :",
+      "pdf_attach_tip": "Le fichier PDF officiel se télécharge automatiquement sur votre appareil. En cliquant sur « Envoyer le Dossier PDF via WhatsApp », WhatsApp s'ouvrira avec le message officiel préparé : il vous suffira de cliquer sur l'icône trombone (📎) ou document et de joindre le PDF téléchargé pour valider votre dossier."
     }
   },
   "contact": {
