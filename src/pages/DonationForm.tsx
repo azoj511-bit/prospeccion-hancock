@@ -338,56 +338,56 @@ export const DonationForm: React.FC = () => {
   };
 
   const generateWhatsAppMessage = (data: FormData, ref: string, submissionDate: string): string => {
-    const orgPart = data.org ? `\n🏢 *${t('donation.fields.org')}:* ${data.org}` : '';
     const countryName = getCountryName(data.country);
     const causeLabel = getCauseLabel(data.cause);
 
-    const sep = '---';
+    const lines: string[] = [
+      `${t('donation.dossier.official_header')}`,
+      `${t('donation.dossier.official_title')}`,
+      `${t('donation.dossier.ref_label')}: ${ref}`,
+      `${t('donation.dossier.date_label')}: ${submissionDate}`,
+      ``,
+      `1. ${t('donation.dossier.applicant_title')}`,
+      `${t('donation.fields.firstname')} & ${t('donation.fields.lastname')}: ${data.firstname} ${data.lastname}`,
+    ];
 
-    return [
-      `🏛️ *${t('donation.dossier.official_header')}*`,
-      `_${t('donation.dossier.official_dept')}_`,
+    if (data.org) lines.push(`${t('donation.fields.org')}: ${data.org}`);
+
+    lines.push(
+      `${t('donation.fields.job')}: ${data.job}`,
+    );
+
+    if (data.salary) lines.push(`${t('donation.fields.salary')}: ${data.salary}`);
+
+    lines.push(
       ``,
-      `📋 *${t('donation.dossier.official_title')}*`,
-      `🔢 *${t('donation.dossier.ref_label')}:* ${ref}`,
-      `📅 *${t('donation.dossier.date_label')}:* ${submissionDate}`,
+      `2. ${t('donation.dossier.contact_title')}`,
+      `Email: ${data.email}`,
+      `${t('donation.fields.phone')}: ${data.phone}`,
+      `${t('donation.fields.country')}: ${countryName}`,
+      `${t('donation.fields.city')}: ${data.city}`,
+      `${t('donation.fields.address')}: ${data.address}`,
       ``,
-      sep,
-      `👤 *${t('donation.dossier.applicant_title')}*`,
-      sep,
-      `• *${t('donation.fields.firstname')} & ${t('donation.fields.lastname')}:* ${data.firstname} ${data.lastname}`,
-      data.org ? `• *${t('donation.fields.org')}:* ${data.org}` : '',
-      `• *${t('donation.fields.job')}:* ${data.job}`,
-      data.salary ? `• *${t('donation.fields.salary')}:* ${data.salary}` : '',
+      `3. ${t('donation.dossier.project_title')}`,
+      `${t('donation.fields.cause')}: ${causeLabel}`,
+      `${t('donation.fields.amount')}: ${data.amount}`,
+    );
+
+    if (data.beneficiaries) lines.push(`${t('donation.fields.beneficiaries')}: ${data.beneficiaries}`);
+    if (data.dates) lines.push(`${t('donation.fields.dates')}: ${data.dates}`);
+
+    lines.push(
       ``,
-      sep,
-      `📍 *${t('donation.dossier.contact_title')}*`,
-      sep,
-      `• *Email:* ${data.email}`,
-      `• *${t('donation.fields.phone')}:* ${data.phone}`,
-      `• *${t('donation.fields.country')}:* ${countryName}`,
-      `• *${t('donation.fields.city')}:* ${data.city}`,
-      `• *${t('donation.fields.address')}:* ${data.address}`,
-      ``,
-      sep,
-      `🎯 *${t('donation.dossier.project_title')}*`,
-      sep,
-      `• *${t('donation.fields.cause')}:* ${causeLabel}`,
-      `• *${t('donation.fields.amount')}:* ${data.amount}`,
-      data.beneficiaries ? `• *${t('donation.fields.beneficiaries')}:* ${data.beneficiaries}` : '',
-      data.dates ? `• *${t('donation.fields.dates')}:* ${data.dates}` : '',
-      ``,
-      sep,
-      `📝 *${t('donation.dossier.description_title')}*`,
-      sep,
+      `4. ${t('donation.dossier.description_title')}`,
       data.description,
       ``,
-      sep,
-      `✅ ${t('donation.fields.privacy_consent')}`,
-      `✅ ${t('donation.fields.honor_cert')}`,
+      `${t('donation.fields.privacy_consent')}`,
+      `${t('donation.fields.honor_cert')}`,
       ``,
-      `🏛️ ${t('donation.dossier.foundation_seal')}`,
-    ].filter(line => line !== '').join('\n');
+      `${t('donation.dossier.foundation_seal')}`,
+    );
+
+    return lines.join('\n');
   };
 
   const handleSubmit = (e: React.FormEvent) => {
