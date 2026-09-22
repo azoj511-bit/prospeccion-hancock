@@ -346,14 +346,18 @@ export const About: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
+              { src: '/img/captures/capture-02.png', label: 'Gina Rinehart AO – Sombrero Kidman' },
+              { src: '/img/captures/capture-10.png', label: 'National Mining Day • Hancock Iron Ore' },
+              { src: '/img/captures/capture-11.png', label: 'Encuentro con Presidente Javier Milei' },
+              { src: '/img/captures/capture-08.png', label: 'Inauguración Proyecto Senex Energy' },
+              { src: '/img/captures/capture-05.png', label: 'Alianzas Estratégicas Globales' },
+              { src: '/img/captures/capture-01.png', label: 'Campamento Minero Pilbara' },
+              { src: '/img/captures/capture-20.png', label: 'Tradición Ganadera S. Kidman' },
               { src: '/img/IMG-20260720-WA0027.jpg', label: 'Acción Comunitaria 2026' },
               { src: '/img/IMG-20260720-WA0029.jpg', label: 'Compromiso Filantrópico 2026' },
               { src: "/img/Gina Rinehart's wealth soars as Hancock Prospecting reports $4b profit.jpeg", label: 'Resultados 2025' },
               { src: '/img/Inside Billionaire Gina Rinehart\'s Key Mining Investments.jpeg', label: 'Inversiones Estratégicas' },
-              { src: '/img/Commodities Crash Washes Up In Korea.jpeg', label: 'Presencia Global' },
-              { src: '/img/Fresh twist in Rinehart royalties case.jpeg', label: 'Historia Hancock' },
               { src: "/img/What it's like to interview Australia's richest___.jpeg", label: 'Liderazgo Mediático' },
-              { src: '/img/Gina Rinehart - $26_5B Real Time Net Worth….jpeg', label: 'Impacto Económico' },
             ].map((img, idx) => (
               <div key={idx} className="group relative aspect-video rounded-xl overflow-hidden border border-brand-gold/10 shadow-sm hover:shadow-lg transition duration-300">
                 <img
@@ -362,8 +366,8 @@ export const About: React.FC = () => {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-brand-blue/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                  <span className="text-[10px] font-semibold text-white leading-tight">{img.label}</span>
+                <div className="absolute inset-0 bg-brand-blue/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="text-[10px] sm:text-xs font-semibold text-white leading-tight">{img.label}</span>
                 </div>
               </div>
             ))}
