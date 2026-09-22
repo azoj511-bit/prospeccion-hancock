@@ -90,6 +90,8 @@ const MainAppContent: React.FC = () => {
         return <Legal pageType="terms" />;
       case 'cookies':
         return <Legal pageType="cookies" />;
+      case 'mentions-legales':
+        return <Legal pageType="mentions-legales" />;
       case 'home':
       default:
         return <Home onNavigate={handleNavigate} />;

@@ -118,6 +118,16 @@ export const Footer: React.FC<FooterProps> = ({ activePage, onNavigate }) => {
                 <span>{t('footer.cookies')}</span>
               </button>
             </li>
+            <li>
+              <button 
+                onClick={() => handleLegalPage('mentions-legales')} 
+                className={`hover:text-brand-gold hover:underline transition-colors duration-150 flex items-center space-x-1 ${
+                  activePage === 'mentions-legales' ? 'text-brand-gold font-medium' : ''
+                }`}
+              >
+                <span>Mentions légales</span>
+              </button>
+            </li>
             <li className="pt-1.5 flex items-center space-x-1 text-xs text-brand-light/60 hover:text-brand-gold transition duration-150">
               <a href="https://www.hancockprospecting.com.au" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 hover:underline">
                 <span>Hancock Prospecting Group</span>

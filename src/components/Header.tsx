@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useTranslation, SUPPORTED_LANGUAGES } from '../i18n/i18n';
-import { Globe, Menu, X, Heart } from 'lucide-react';
+import { useTranslation } from '../i18n/i18n';
+import { Menu, X, Heart } from 'lucide-react';
 
 interface HeaderProps {
   activePage: string;
@@ -8,9 +8,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
-  const { language, changeLanguage, t } = useTranslation();
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   const navItems = [
     { id: 'home', label: t('nav.home') },
@@ -29,7 +28,7 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
     setMobileMenuOpen(false);
   };
 
-  const currentLangObj = SUPPORTED_LANGUAGES.find((l) => l.code === language) || SUPPORTED_LANGUAGES[0];
+
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-brand-gold/20 bg-brand-blue/95 text-white backdrop-blur-md transition-all duration-300">
@@ -75,77 +74,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
           </button>
         </nav>
 
-        {/* Right tools (Language selection) */}
+        {/* Right tools (Google Translate) */}
         <div className="hidden lg:flex items-center space-x-4 relative">
-          <button
-            onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-            onBlur={() => setTimeout(() => setLangDropdownOpen(false), 200)}
-            className="flex items-center space-x-1.5 rounded-md border border-brand-gold/30 px-3 py-1.5 text-xs font-medium text-brand-light hover:bg-white/5 hover:border-brand-gold transition duration-200"
-            aria-label="Select language"
-            aria-haspopup="true"
-            aria-expanded={langDropdownOpen}
-          >
-            <Globe className="h-3.5 w-3.5 text-brand-gold" />
-            <span>{currentLangObj.flag} {currentLangObj.name}</span>
-          </button>
-
-          {/* Lang drop-down menu */}
-          {langDropdownOpen && (
-            <div className="absolute right-0 top-full mt-2 w-40 rounded-lg border border-brand-gold/25 bg-brand-blue p-1.5 shadow-xl ring-1 ring-black/5 animate-in fade-in slide-in-from-top-1 duration-200">
-              {SUPPORTED_LANGUAGES.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    changeLanguage(lang.code);
-                    setLangDropdownOpen(false);
-                  }}
-                  className={`flex w-full items-center space-x-2 rounded-md px-3 py-2 text-left text-xs transition duration-150 ${
-                    language === lang.code 
-                      ? 'bg-brand-gold text-brand-blue font-semibold' 
-                      : 'text-brand-light/90 hover:bg-white/10 hover:text-white'
-                  }`}
-                >
-                  <span>{lang.flag}</span>
-                  <span>{lang.name}</span>
-                </button>
-              ))}
-            </div>
-          )}
+          <div id="google_translate_element"></div>
         </div>
 
         {/* Mobile controls */}
         <div className="flex items-center space-x-2 lg:hidden">
-          {/* Quick language toggle icon button */}
-          <div className="relative">
-            <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              onBlur={() => setTimeout(() => setLangDropdownOpen(false), 200)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-brand-gold/30 text-brand-light hover:bg-white/5 transition"
-              aria-label="Language selector"
-            >
-              <span>{currentLangObj.flag}</span>
-            </button>
-            {langDropdownOpen && (
-              <div className="absolute right-0 top-full mt-2 w-36 rounded-lg border border-brand-gold/25 bg-brand-blue p-1 shadow-lg z-50">
-                {SUPPORTED_LANGUAGES.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => {
-                      changeLanguage(lang.code);
-                      setLangDropdownOpen(false);
-                    }}
-                    className={`flex w-full items-center space-x-2 rounded px-2.5 py-1.5 text-left text-xs ${
-                      language === lang.code 
-                        ? 'bg-brand-gold text-brand-blue font-semibold' 
-                        : 'text-brand-light/95 hover:bg-white/10'
-                    }`}
-                  >
-                    <span>{lang.flag}</span>
-                    <span>{lang.name}</span>
-                  </button>
-                ))}
-              </div>
-            )}
+          <div className="relative flex items-center">
+            <div id="google_translate_element"></div>
           </div>
 
           <button

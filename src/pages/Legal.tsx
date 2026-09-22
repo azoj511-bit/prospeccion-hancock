@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from '../i18n/i18n';
 
 interface LegalProps {
-  pageType: 'privacy' | 'terms' | 'cookies';
+  pageType: 'privacy' | 'terms' | 'cookies' | 'mentions-legales';
 }
 
 export const Legal: React.FC<LegalProps> = ({ pageType }) => {
@@ -14,6 +14,8 @@ export const Legal: React.FC<LegalProps> = ({ pageType }) => {
         return renderTerms();
       case 'cookies':
         return renderCookies();
+      case 'mentions-legales':
+        return renderMentionsLegales();
       case 'privacy':
       default:
         return renderPrivacy();
@@ -203,12 +205,34 @@ export const Legal: React.FC<LegalProps> = ({ pageType }) => {
     }
   };
 
+  const renderMentionsLegales = () => {
+    return (
+      <>
+        <h2 className="font-serif text-xl font-bold text-brand-blue mb-4">Éditeur du site</h2>
+        <p className="mb-2">Hancock Prospecting PTY LTD</p>
+        <p className="mb-2">Forme juridique : Proprietary Limited Company (Australie)</p>
+        <p className="mb-2">ACN / ABN : <strong>008676417 / 69008676417</strong></p>
+        <p className="mb-2">Siège social : <strong>Western Australia (WA 6005)</strong></p>
+        <p className="mb-2">Téléphone : <strong>+33 757754014</strong> — E-mail : <strong>prospectinghancock0@gmail.com</strong></p>
+        <p className="mb-4">Directeur de la publication : <strong>Gina Rinehart, Directrice Generale executive chairman</strong></p>
+        
+        <h2 className="font-serif text-xl font-bold text-brand-blue mb-4">Hébergement</h2>
+        <p className="mb-4"><strong>Vercel</strong></p>
+
+        <h2 className="font-serif text-xl font-bold text-brand-blue mb-4">Propriété intellectuelle</h2>
+        <p className="mb-4">L'ensemble des éléments du site (textes, photographies, logos, marques, éléments graphiques, structure, code) est protégé par le droit de la propriété intellectuelle et demeure la propriété exclusive de Hancock Prospecting PTY LTD ou de ses ayants droit. Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+      </>
+    );
+  };
+
   const getTitle = () => {
     switch (pageType) {
       case 'terms':
         return t('footer.terms');
       case 'cookies':
         return t('footer.cookies');
+      case 'mentions-legales':
+        return 'Mentions légales';
       case 'privacy':
       default:
         return t('footer.privacy');

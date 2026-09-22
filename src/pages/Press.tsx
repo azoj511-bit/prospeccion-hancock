@@ -152,6 +152,47 @@ export const Press: React.FC = () => {
         </div>
       </section>
 
+      {/* Press Photo Gallery */}
+      <section className="py-14 bg-brand-light/30 border-t border-brand-gold/10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl font-bold text-brand-blue">
+              Galería Fotográfica de Prensa
+            </h2>
+            <p className="mt-2 text-xs text-brand-gray/80 max-w-sm mx-auto">
+              Imágenes de alta resolución disponibles para uso periodístico bajo solicitud acreditada.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { src: "/img/Brand for Gina Rinehart.jpeg", label: "Gina Rinehart – Marca Corporativa" },
+              { src: "/img/Gina Rinehart takes a giant leap into space.jpeg", label: "Rinehart – Inversión Tecnológica" },
+              { src: "/img/Inside Billionaire Gina Rinehart's Key Mining Investments.jpeg", label: "Inversiones Mineras Clave" },
+              { src: "/img/Gina Rinehart's wealth soars as Hancock Prospecting reports $4b profit.jpeg", label: "Resultados Financieros Hancock" },
+              { src: "/img/What it's like to interview Australia's richest___.jpeg", label: "Entrevista Exclusiva" },
+              { src: "/img/Fresh twist in Rinehart royalties case.jpeg", label: "Caso Rinehart – Regalías" },
+              { src: "/img/Commodities Crash Washes Up In Korea.jpeg", label: "Exportaciones – Corea" },
+              { src: "/img/Gina Rinehart - $26_5B Real Time Net Worth….jpeg", label: "Patrimonio Neto $26.5B" },
+            ].map((img, idx) => (
+              <div
+                key={idx}
+                className="group relative aspect-video rounded-xl overflow-hidden border border-brand-gold/10 shadow-sm hover:shadow-lg transition duration-300 bg-white"
+              >
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-brand-blue/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="text-[10px] font-semibold text-white leading-tight line-clamp-2">{img.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Press Inquiry Contact form */}
       <section className="py-16 bg-brand-light/40 border-t border-brand-gold/10 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">

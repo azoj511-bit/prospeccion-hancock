@@ -74,61 +74,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const officialLanguage: Language = 'es';
 
-  // Determine initial language: URL path -> localStorage -> browser language -> official 'es'
+  // Force Official Language (Español)
   const getInitialLanguage = (): Language => {
-    const validLangs: Language[] = ['es', 'en', 'fr', 'zh', 'de', 'pt', 'ro', 'hr', 'sr', 'ru'];
-
-    // 1. Check URL hash or path
-    const hash = window.location.hash;
-    const pathLang = hash.split('/')[1] as Language;
-    if (pathLang && validLangs.includes(pathLang)) {
-      return pathLang;
-    }
-
-    // 2. Check localStorage
-    const saved = localStorage.getItem('fph_lang') as Language;
-    if (saved && validLangs.includes(saved)) {
-      return saved;
-    }
-
-    // 3. Check browser language (e.g., 'fr-FR' -> 'fr', 'es-MX' -> 'es')
-    const browserCode = (navigator.language || (navigator as any).userLanguage || '').toLowerCase();
-    const primaryCode = browserCode.split('-')[0] as Language;
-    if (validLangs.includes(primaryCode)) {
-      return primaryCode;
-    }
-
-    // 4. Default to Official Language (Español)
     return 'es';
   };
 
   const [language, setLanguageState] = useState<Language>(getInitialLanguage());
 
-  // Automatic background country detection on first visit if no explicit language was saved
+  // Google Translate is now used for translations, so no auto-detection logic needed here.
   useEffect(() => {
-    const userManuallySwitched = localStorage.getItem('fph_lang_manual');
-    // Only auto-detect if user never manually switched language
-    if (!userManuallySwitched) {
-      // Non-blocking geo-lookup to detect user's country
-      fetch('https://api.country.is/')
-        .then((res) => res.json())
-        .then((data) => {
-          if (data && data.country) {
-            const detected = detectLanguageFromCountry(data.country);
-            if (detected && detected !== language) {
-              setLanguageState(detected);
-              localStorage.setItem('fph_lang', detected);
-              const hash = window.location.hash;
-              const parts = hash.split('/');
-              const activePage = parts[2] || 'home';
-              window.location.hash = `/${detected}/${activePage}`;
-            }
-          }
-        })
-        .catch(() => {
-          // Fail silently — use browser language or 'es' default
-        });
-    }
+    // No-op
   }, []);
 
   const changeLanguage = (lang: Language) => {

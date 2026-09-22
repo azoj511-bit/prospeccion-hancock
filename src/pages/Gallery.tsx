@@ -233,6 +233,26 @@ const titleTranslations: Record<number, Record<string, string>> = {
     hr: 'Gđa Gina Rinehart AO - Australska filantropkinja i poslovna liderica',
     sr: 'Гђа Џина Рајнхарт АО - Аустралијска филантропкиња и пословна лидерка',
     ru: 'Г-жа Джина Райнхарт AO - австралийский меценат и бизнес-лидер'
+  },
+  24: {
+    en: 'Fundación Prospección Hancock – Community Action 2026',
+    es: 'Fundación Prospección Hancock – Acción Comunitaria 2026',
+    fr: 'Fundación Prospección Hancock – Action Communautaire 2026',
+    pt: 'Fundação Prospección Hancock – Ação Comunitária 2026',
+    ro: 'Fundación Prospección Hancock – Acțiune Comunitară 2026',
+    hr: 'Fundación Prospección Hancock – Zajednička Akcija 2026',
+    sr: 'Fundación Prospección Hancock – Zajednička Akcija 2026',
+    ru: 'Fundación Prospección Hancock – Общественные действия 2026'
+  },
+  25: {
+    en: 'Hancock Prospecting – Philanthropic Commitment 2026',
+    es: 'Hancock Prospecting – Compromiso Filantrópico 2026',
+    fr: 'Hancock Prospecting – Engagement Philanthropique 2026',
+    pt: 'Hancock Prospecting – Compromisso Filantrópico 2026',
+    ro: 'Hancock Prospecting – Angajament Filantropic 2026',
+    hr: 'Hancock Prospecting – Filantropska Predanost 2026',
+    sr: 'Hancock Prospecting – Filantropska Predanost 2026',
+    ru: 'Hancock Prospecting – Филантропические обязательства 2026'
   }
 };
 
@@ -251,7 +271,7 @@ export const Gallery: React.FC = () => {
       type: 'image',
       title: 'Executive Leadership & Vision - Mrs. Gina Rinehart AO',
       category: 'Institucional',
-      year: 2025,
+      year: 2026,
     },
     {
       id: 2,
@@ -259,11 +279,27 @@ export const Gallery: React.FC = () => {
       type: 'image',
       title: 'Hancock Prospecting Official Corporate Identity & Headquarters',
       category: 'Institucional',
-      year: 2025,
+      year: 2026,
+    },
+    {
+      id: 24,
+      url: '/img/IMG-20260720-WA0027.jpg',
+      type: 'image',
+      title: 'Fundación Prospección Hancock – Acción Comunitaria 2026',
+      category: 'Institucional',
+      year: 2026,
+    },
+    {
+      id: 25,
+      url: '/img/IMG-20260720-WA0029.jpg',
+      type: 'image',
+      title: 'Hancock Prospecting – Compromiso Filantrópico 2026',
+      category: 'Institucional',
+      year: 2026,
     },
     {
       id: 15,
-      url: '/img/gina-rinehart-brand.jpg',
+      url: '/img/Brand for Gina Rinehart.jpeg',
       type: 'image',
       title: 'Gina Rinehart Brand & Australian Industry Leadership',
       category: 'Institucional',
@@ -271,7 +307,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 16,
-      url: '/img/key-mining-investments.jpg',
+      url: '/img/Inside Billionaire Gina Rinehart\'s Key Mining Investments.jpeg',
       type: 'image',
       title: 'Key Mining Investments & Strategic Infrastructure Projects',
       category: 'Institucional',
@@ -279,7 +315,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 17,
-      url: '/img/hancock-profit.jpg',
+      url: "/img/Gina Rinehart's wealth soars as Hancock Prospecting reports $4b profit.jpeg",
       type: 'image',
       title: 'Hancock Prospecting Financial Strength & Philanthropic Growth',
       category: 'Institucional',
@@ -287,7 +323,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 18,
-      url: '/img/interview-richest.jpg',
+      url: "/img/What it's like to interview Australia's richest___.jpeg",
       type: 'image',
       title: 'Exclusive Media Interview & Public Keynote Address',
       category: 'Institucional',
@@ -295,7 +331,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 19,
-      url: '/img/gina-rinehart-space.jpg',
+      url: '/img/Gina Rinehart takes a giant leap into space.jpeg',
       type: 'image',
       title: 'Innovation & Frontier Technology Investments',
       category: 'Institucional',
@@ -303,7 +339,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 20,
-      url: '/img/commodities-korea.jpg',
+      url: '/img/Commodities Crash Washes Up In Korea.jpeg',
       type: 'image',
       title: 'Global Mining Exports & Asian Partnership Operations',
       category: 'Institucional',
@@ -311,7 +347,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 21,
-      url: '/img/rinehart-royalties.jpg',
+      url: '/img/Fresh twist in Rinehart royalties case.jpeg',
       type: 'image',
       title: 'Hancock Historic Iron Ore Discovery & Royalties Heritage',
       category: 'Institucional',
@@ -319,7 +355,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 22,
-      url: '/img/economic-forum.jpg',
+      url: '/img/The big con_ how neoliberals convinced us there wasn\'t enough to go around _ Richard Denniss.jpeg',
       type: 'image',
       title: 'Economic Forum & Sustainable Community Prosperity',
       category: 'Cultura',
@@ -327,7 +363,7 @@ export const Gallery: React.FC = () => {
     },
     {
       id: 23,
-      url: '/img/gina-rinehart-net-worth.jpg',
+      url: '/img/Gina Rinehart - $26_5B Real Time Net Worth….jpeg',
       type: 'image',
       title: 'Mrs. Gina Rinehart AO - Australian Philanthropist & Business Leader',
       category: 'Institucional',
@@ -397,7 +433,6 @@ export const Gallery: React.FC = () => {
       category: 'Urgencia',
       year: 2024,
     },
-
     {
       id: 12,
       url: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&q=80&w=1200',

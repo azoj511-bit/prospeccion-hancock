@@ -86,3 +86,38 @@ h1, h2, h3, h4, h5, h6 {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-brand-gold);
 }
+
+/* ===== Google Translate Widget Overrides ===== */
+/* Hide Google Translate banner and top bar */
+body > .skiptranslate {
+  display: none !important;
+}
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+/* Style the select dropdown to blend in with the header */
+#google_translate_element .goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: 1px solid rgba(184, 134, 11, 0.4) !important;
+  border-radius: 6px !important;
+  padding: 3px 8px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 11px !important;
+}
+#google_translate_element .goog-te-gadget-simple a.goog-te-menu-value {
+  color: #F8F5EF !important;
+  font-size: 11px !important;
+  text-decoration: none !important;
+}
+#google_translate_element .goog-te-gadget-simple a.goog-te-menu-value span {
+  color: #F8F5EF !important;
+}
+#google_translate_element .goog-te-gadget-simple a.goog-te-menu-value:hover {
+  color: #B8860B !important;
+}
+#google_translate_element .goog-te-gadget-simple img {
+  display: none !important;
+}
