@@ -213,7 +213,7 @@ export const Legal: React.FC<LegalProps> = ({ pageType }) => {
         <p className="mb-2">Forme juridique : Proprietary Limited Company (Australie)</p>
         <p className="mb-2">ACN / ABN : <strong>008676417 / 69008676417</strong></p>
         <p className="mb-2">Siège social : <strong>Western Australia (WA 6005)</strong></p>
-        <p className="mb-2">Téléphone : <strong>+33 757754014</strong> — E-mail : <strong>prospectinghancock0@gmail.com</strong></p>
+        <p className="mb-2">Téléphone : <strong>+61 480 801 641</strong> — E-mail : <strong>prospectinghancock0@gmail.com</strong></p>
         <p className="mb-4">Directeur de la publication : <strong>Gina Rinehart, Directrice Generale executive chairman</strong></p>
         
         <h2 className="font-serif text-xl font-bold text-brand-blue mb-4">Hébergement</h2>

@@ -186,6 +186,29 @@ export const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
+      {/* Photo Strip Section - Activités de la Fondation */}
+      <section className="py-0 bg-white border-t border-brand-gold/10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-0">
+          {[
+            { src: '/img/IMG-20260720-WA0027.jpg', label: 'Acción Comunitaria 2026' },
+            { src: '/img/IMG-20260720-WA0029.jpg', label: 'Compromiso Filantrópico 2026' },
+            { src: '/img/Brand for Gina Rinehart.jpeg', label: 'Liderazgo Global' },
+            { src: '/img/Gina Rinehart takes a giant leap into space.jpeg', label: 'Innovación y Futuro' },
+          ].map((img, idx) => (
+            <div key={idx} className="relative aspect-video overflow-hidden group">
+              <img
+                src={img.src}
+                alt={img.label}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-90 group-hover:brightness-100"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-blue/70 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+              <span className="absolute bottom-3 left-3 text-[10px] font-bold uppercase tracking-widest text-brand-gold">{img.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Milestones / History Timeline Section */}
       <section className="py-20 bg-brand-light/45 px-4 sm:px-6 lg:px-8 border-t border-b border-brand-gold/10">
         <div className="mx-auto max-w-7xl">

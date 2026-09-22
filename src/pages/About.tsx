@@ -332,6 +332,44 @@ export const About: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Galerie Photos - Activités & Leadership */}
+      <section className="py-16 bg-white px-4 sm:px-6 lg:px-8 border-t border-brand-gold/10">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-2xl font-bold text-brand-blue">
+              {t('gallery.title')}
+            </h2>
+            <p className="mt-2 text-xs text-brand-gray/80 max-w-sm mx-auto">
+              Instantáneas del compromiso y las actividades de la Fundación Prospección Hancock.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { src: '/img/IMG-20260720-WA0027.jpg', label: 'Acción Comunitaria 2026' },
+              { src: '/img/IMG-20260720-WA0029.jpg', label: 'Compromiso Filantrópico 2026' },
+              { src: "/img/Gina Rinehart's wealth soars as Hancock Prospecting reports $4b profit.jpeg", label: 'Resultados 2025' },
+              { src: '/img/Inside Billionaire Gina Rinehart\'s Key Mining Investments.jpeg', label: 'Inversiones Estratégicas' },
+              { src: '/img/Commodities Crash Washes Up In Korea.jpeg', label: 'Presencia Global' },
+              { src: '/img/Fresh twist in Rinehart royalties case.jpeg', label: 'Historia Hancock' },
+              { src: "/img/What it's like to interview Australia's richest___.jpeg", label: 'Liderazgo Mediático' },
+              { src: '/img/Gina Rinehart - $26_5B Real Time Net Worth….jpeg', label: 'Impacto Económico' },
+            ].map((img, idx) => (
+              <div key={idx} className="group relative aspect-video rounded-xl overflow-hidden border border-brand-gold/10 shadow-sm hover:shadow-lg transition duration-300">
+                <img
+                  src={img.src}
+                  alt={img.label}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-brand-blue/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
+                  <span className="text-[10px] font-semibold text-white leading-tight">{img.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

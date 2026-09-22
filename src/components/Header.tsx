@@ -74,16 +74,15 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
           </button>
         </nav>
 
-        {/* Right tools (Google Translate) */}
+        {/* Right tools (Google Translate) - Desktop only */}
         <div className="hidden lg:flex items-center space-x-4 relative">
           <div id="google_translate_element"></div>
         </div>
 
         {/* Mobile controls */}
         <div className="flex items-center space-x-2 lg:hidden">
-          <div className="relative flex items-center">
-            <div id="google_translate_element"></div>
-          </div>
+          {/* Google translate visible on mobile too via small widget */}
+          <div id="google_translate_element_mobile" className="scale-90 origin-right"></div>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
