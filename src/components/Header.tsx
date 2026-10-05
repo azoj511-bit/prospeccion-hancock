@@ -72,9 +72,9 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
               <span>HPPL • West Perth, Australia</span>
             </span>
             <span className="hidden md:inline-block text-white/20">|</span>
-            <a href="tel:+61480801641" className="hidden md:flex items-center space-x-1 hover:text-brand-gold transition">
+            <a href="tel:+528110356311" className="hidden md:flex items-center space-x-1 hover:text-brand-gold transition">
               <Phone className="h-3 w-3 text-brand-gold" />
-              <span>+61 480 801 641</span>
+              <span>+52 81 1035 6311</span>
             </a>
             <span className="hidden lg:inline-block text-white/20">|</span>
             <a href="mailto:mail@hancockprospecting.com.au" className="hidden lg:flex items-center space-x-1 hover:text-brand-gold transition">

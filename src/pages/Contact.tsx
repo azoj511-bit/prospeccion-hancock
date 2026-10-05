@@ -79,7 +79,7 @@ export const Contact: React.FC = () => {
                    `*${t('contact.form_email')}:* ${formData.email}\n` +
                    `*${t('contact.form_subject')}:* ${subjectText}\n\n` +
                    `*${t('contact.form_message')}:*\n${formData.message}`;
-      const waUrl = `https://wa.me/61480801641?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/528110356311?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
       
       setFormSubmitted(true);
@@ -168,7 +168,7 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-semibold text-brand-gray uppercase tracking-wider">{t('contact.phone_label')}</h4>
-                    <p className="text-sm font-light text-brand-blue mt-0.5">+61 480 801 641</p>
+                    <p className="text-sm font-light text-brand-blue mt-0.5">+52 81 1035 6311</p>
                   </div>
                 </div>
 
@@ -179,12 +179,12 @@ export const Contact: React.FC = () => {
                   <div>
                     <h4 className="text-xs font-semibold text-brand-gray uppercase tracking-wider">{t('contact.whatsapp_label')}</h4>
                     <a
-                      href="https://wa.me/61480801641"
+                      href="https://wa.me/528110356311"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-light text-brand-blue hover:text-brand-gold transition mt-0.5 block hover:underline"
                     >
-                      +61 480 801 641
+                      +52 81 1035 6311
                     </a>
                   </div>
                 </div>
