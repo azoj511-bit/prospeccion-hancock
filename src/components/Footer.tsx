@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../i18n/i18n';
-import { Heart, Mail, ExternalLink } from 'lucide-react';
+import { Heart, Mail, ExternalLink, Phone, MessageSquare } from 'lucide-react';
 
 interface FooterProps {
   activePage: string;
@@ -60,6 +60,47 @@ export const Footer: React.FC<FooterProps> = ({ activePage, onNavigate }) => {
           <p className="text-sm font-light text-brand-light/80 leading-relaxed">
             {t('footer.mission')}
           </p>
+
+          {/* Contact Direct - 2 Numéros permanents */}
+          <div className="pt-2 border-t border-brand-gold/15 space-y-2 text-xs">
+            <span className="font-serif text-xs font-semibold text-brand-gold uppercase tracking-wider block">
+              Contact & Assistance :
+            </span>
+            <div className="space-y-1.5 text-brand-light/80">
+              <div className="flex items-center space-x-2">
+                <Phone className="h-3.5 w-3.5 text-brand-gold shrink-0" />
+                <a href="tel:+13257187098" className="hover:text-brand-gold hover:underline transition">
+                  +1 (325) 718-7098
+                </a>
+                <span className="text-brand-light/40">|</span>
+                <a
+                  href="https://wa.me/13257187098"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#25D366] hover:underline inline-flex items-center space-x-1"
+                >
+                  <MessageSquare className="h-3 w-3" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Phone className="h-3.5 w-3.5 text-brand-gold shrink-0" />
+                <a href="tel:+528110356311" className="hover:text-brand-gold hover:underline transition">
+                  +52 81 1035 6311
+                </a>
+                <span className="text-brand-light/40">|</span>
+                <a
+                  href="https://wa.me/528110356311"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#25D366] hover:underline inline-flex items-center space-x-1"
+                >
+                  <MessageSquare className="h-3 w-3" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Col 2: Quick Links */}

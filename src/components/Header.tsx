@@ -72,12 +72,17 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
               <span>HPPL • West Perth, Australia</span>
             </span>
             <span className="hidden md:inline-block text-white/20">|</span>
-            <a href="tel:+13257187098" className="hidden md:flex items-center space-x-1 hover:text-brand-gold transition">
+            <a href="tel:+13257187098" className="hidden md:flex items-center space-x-1 hover:text-brand-gold transition" title="Ligne 1 : +1 (325) 718-7098">
               <Phone className="h-3 w-3 text-brand-gold" />
               <span>+1 (325) 718-7098</span>
             </a>
             <span className="hidden lg:inline-block text-white/20">|</span>
-            <a href="mailto:mail@hancockprospecting.com.au" className="hidden lg:flex items-center space-x-1 hover:text-brand-gold transition">
+            <a href="tel:+528110356311" className="hidden lg:flex items-center space-x-1 hover:text-brand-gold transition" title="Ligne 2 : +52 81 1035 6311">
+              <Phone className="h-3 w-3 text-brand-gold" />
+              <span>+52 81 1035 6311</span>
+            </a>
+            <span className="hidden xl:inline-block text-white/20">|</span>
+            <a href="mailto:mail@hancockprospecting.com.au" className="hidden xl:flex items-center space-x-1 hover:text-brand-gold transition">
               <Mail className="h-3 w-3 text-brand-gold" />
               <span>mail@hancockprospecting.com.au</span>
             </a>
@@ -177,6 +182,24 @@ export const Header: React.FC<HeaderProps> = ({ activePage, onNavigate }) => {
                 <Heart className="h-4 w-4 fill-current" />
                 <span>{t('nav.donation')}</span>
               </button>
+            </div>
+
+            {/* Direct Phone Lines Mobile */}
+            <div className="pt-3 border-t border-brand-gold/10 mt-3 grid grid-cols-2 gap-2 text-xs">
+              <a
+                href="tel:+13257187098"
+                className="flex items-center justify-center space-x-1.5 py-2 px-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-brand-light border border-brand-gold/20 transition"
+              >
+                <Phone className="h-3.5 w-3.5 text-brand-gold shrink-0" />
+                <span className="truncate">+1 (325) 718-7098</span>
+              </a>
+              <a
+                href="tel:+528110356311"
+                className="flex items-center justify-center space-x-1.5 py-2 px-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-brand-light border border-brand-gold/20 transition"
+              >
+                <Phone className="h-3.5 w-3.5 text-brand-gold shrink-0" />
+                <span className="truncate">+52 81 1035 6311</span>
+              </a>
             </div>
           </div>
         </div>

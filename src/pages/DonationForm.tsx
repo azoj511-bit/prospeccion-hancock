@@ -428,9 +428,8 @@ export const DonationForm: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleSendViaWhatsApp = () => {
-    const phone = '13257187098';
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(formattedMessage)}`, '_blank');
+  const handleSendViaWhatsApp = (targetPhone: string = '13257187098') => {
+    window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(formattedMessage)}`, '_blank');
   };
 
   const handleCopyMessage = () => {
@@ -469,17 +468,45 @@ export const DonationForm: React.FC = () => {
             {t('donation.dossier.ref_label')}: <strong>{refNumber}</strong>
           </span>
 
-          {/* Primary: Send via WhatsApp */}
-          <button
-            onClick={handleSendViaWhatsApp}
-            className="w-full max-w-sm flex items-center justify-center space-x-3 rounded-xl text-white font-bold text-base py-4 px-6 transition shadow-lg hover:shadow-xl active:scale-95 cursor-pointer mb-3"
-            style={{ backgroundColor: '#25D366' }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#20ba5a')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#25D366')}
-          >
-            <Send className="h-5 w-5" />
-            <span>{t('donation.dossier.send_whatsapp')}</span>
-          </button>
+          {/* Primary: Send via WhatsApp - 2 Official Lines Available */}
+          <div className="w-full max-w-md space-y-2.5 mb-4">
+            <p className="text-xs font-semibold text-brand-gray uppercase tracking-wider">
+              Transmettre le dossier à un conseiller officiel :
+            </p>
+            <button
+              onClick={() => handleSendViaWhatsApp('13257187098')}
+              className="w-full flex items-center justify-between rounded-xl text-white font-bold text-sm py-3 px-5 transition shadow hover:shadow-lg active:scale-98 cursor-pointer"
+              style={{ backgroundColor: '#25D366' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#20ba5a')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#25D366')}
+            >
+              <div className="flex items-center space-x-2.5">
+                <span className="text-lg">🇺🇸</span>
+                <div className="text-left">
+                  <span className="block leading-tight">Envoyer via Ligne 1 (USA / Int.)</span>
+                  <span className="text-[11px] font-mono opacity-90">+1 (325) 718-7098</span>
+                </div>
+              </div>
+              <Send className="h-4 w-4" />
+            </button>
+
+            <button
+              onClick={() => handleSendViaWhatsApp('528110356311')}
+              className="w-full flex items-center justify-between rounded-xl text-white font-bold text-sm py-3 px-5 transition shadow hover:shadow-lg active:scale-98 cursor-pointer"
+              style={{ backgroundColor: '#1ea952' }}
+              onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#188c43')}
+              onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#1ea952')}
+            >
+              <div className="flex items-center space-x-2.5">
+                <span className="text-lg">🇲🇽</span>
+                <div className="text-left">
+                  <span className="block leading-tight">Envoyer via Ligne 2 (Mexique / Latam)</span>
+                  <span className="text-[11px] font-mono opacity-90">+52 81 1035 6311</span>
+                </div>
+              </div>
+              <Send className="h-4 w-4" />
+            </button>
+          </div>
 
           {/* Secondary: Copy + New */}
           <div className="flex items-center gap-3 w-full max-w-sm">

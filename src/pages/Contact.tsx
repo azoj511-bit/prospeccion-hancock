@@ -59,6 +59,8 @@ export const Contact: React.FC = () => {
     };
   }, []);
 
+  const [selectedTargetPhone, setSelectedTargetPhone] = useState<'13257187098' | '528110356311'>('13257187098');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -79,7 +81,7 @@ export const Contact: React.FC = () => {
                    `*${t('contact.form_email')}:* ${formData.email}\n` +
                    `*${t('contact.form_subject')}:* ${subjectText}\n\n` +
                    `*${t('contact.form_message')}:*\n${formData.message}`;
-      const waUrl = `https://wa.me/13257187098?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/${selectedTargetPhone}?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
       
       setFormSubmitted(true);
@@ -168,7 +170,16 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-semibold text-brand-gray uppercase tracking-wider">{t('contact.phone_label')}</h4>
-                    <a href="tel:+13257187098" className="text-sm font-light text-brand-blue hover:text-brand-gold transition mt-0.5 block hover:underline">+1 (325) 718-7098</a>
+                    <div className="space-y-1 mt-1">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[11px] font-semibold text-brand-gold bg-brand-blue/5 px-1.5 py-0.5 rounded border border-brand-gold/20">Ligne 1 :</span>
+                        <a href="tel:+13257187098" className="text-sm font-light text-brand-blue hover:text-brand-gold transition hover:underline">+1 (325) 718-7098</a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[11px] font-semibold text-brand-gold bg-brand-blue/5 px-1.5 py-0.5 rounded border border-brand-gold/20">Ligne 2 :</span>
+                        <a href="tel:+528110356311" className="text-sm font-light text-brand-blue hover:text-brand-gold transition hover:underline">+52 81 1035 6311</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -178,14 +189,30 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-xs font-semibold text-brand-gray uppercase tracking-wider">{t('contact.whatsapp_label')}</h4>
-                    <a
-                      href="https://wa.me/13257187098"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-light text-brand-blue hover:text-brand-gold transition mt-0.5 block hover:underline"
-                    >
-                      +1 (325) 718-7098
-                    </a>
+                    <div className="space-y-1 mt-1">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[11px] font-semibold text-brand-gold bg-brand-blue/5 px-1.5 py-0.5 rounded border border-brand-gold/20">Ligne 1 :</span>
+                        <a
+                          href="https://wa.me/13257187098"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-light text-brand-blue hover:text-[#25D366] transition hover:underline"
+                        >
+                          +1 (325) 718-7098
+                        </a>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-[11px] font-semibold text-brand-gold bg-brand-blue/5 px-1.5 py-0.5 rounded border border-brand-gold/20">Ligne 2 :</span>
+                        <a
+                          href="https://wa.me/528110356311"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-light text-brand-blue hover:text-[#25D366] transition hover:underline"
+                        >
+                          +52 81 1035 6311
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -272,6 +299,45 @@ export const Contact: React.FC = () => {
                     onChange={handleInputChange}
                     className="w-full rounded border border-gray-200 px-3 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-brand-gold bg-white resize-none"
                   />
+                </div>
+
+                {/* Choix de la ligne WhatsApp destinataire */}
+                <div>
+                  <label className="block text-xs font-semibold text-brand-gray uppercase mb-1.5">
+                    Ligne WhatsApp destinataire :
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedTargetPhone('13257187098')}
+                      className={`flex items-center space-x-2 p-2.5 rounded-lg border text-xs font-medium transition cursor-pointer ${
+                        selectedTargetPhone === '13257187098'
+                          ? 'border-[#25D366] bg-[#25D366]/10 text-brand-blue font-bold shadow-sm'
+                          : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                      }`}
+                    >
+                      <span className="text-lg">🇺🇸</span>
+                      <div className="text-left">
+                        <span className="block text-[10px] text-gray-500 uppercase tracking-wider">Ligne 1 (USA / Int.)</span>
+                        <span className="block font-mono text-[11px] font-semibold text-brand-blue">+1 (325) 718-7098</span>
+                      </div>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedTargetPhone('528110356311')}
+                      className={`flex items-center space-x-2 p-2.5 rounded-lg border text-xs font-medium transition cursor-pointer ${
+                        selectedTargetPhone === '528110356311'
+                          ? 'border-[#25D366] bg-[#25D366]/10 text-brand-blue font-bold shadow-sm'
+                          : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'
+                      }`}
+                    >
+                      <span className="text-lg">🇲🇽</span>
+                      <div className="text-left">
+                        <span className="block text-[10px] text-gray-500 uppercase tracking-wider">Ligne 2 (Mexique)</span>
+                        <span className="block font-mono text-[11px] font-semibold text-brand-blue">+52 81 1035 6311</span>
+                      </div>
+                    </button>
+                  </div>
                 </div>
 
                 <div className="pt-2">
