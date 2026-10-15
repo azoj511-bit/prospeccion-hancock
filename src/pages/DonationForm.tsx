@@ -429,7 +429,7 @@ export const DonationForm: React.FC = () => {
   };
 
   const handleSendViaWhatsApp = () => {
-    const phone = '528110356311';
+    const phone = '13257187098';
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(formattedMessage)}`, '_blank');
   };
 

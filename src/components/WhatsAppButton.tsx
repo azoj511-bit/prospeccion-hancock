@@ -13,7 +13,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ activePage }) =>
     return null;
   }
 
-  const phone = '528110356311'; // Official WhatsApp Target: +52 81 1035 6311
+  const phone = '13257187098'; // Official WhatsApp Target: +1 (325) 718-7098
   
   const getLocalizedMessage = (): string => {
     switch (language) {
